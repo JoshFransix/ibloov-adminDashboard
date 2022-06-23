@@ -88,3 +88,6 @@ sw.*
 
 # Vim swap files
 *.swp
+
+# Show memory limit
+show-memory-limit.js
