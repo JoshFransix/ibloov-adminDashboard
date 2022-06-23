@@ -52,10 +52,40 @@ export const feedbackData = [
   {
     id: 8,
     name: "Joshua Fransix",
-    image: "woman.jpg",
+    image: "woman2.jpg",
     email: "test256@gmail.com",
     phoneNumber: "09012276905",
-    date: "12/24/2022",
+    date: "25/05/2022",
+    message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
+    star: "starstar"
+  },
+  {
+    id: 8,
+    name: "David Beckham",
+    image: "man1.jpg",
+    email: "good233@ymail.com",
+    phoneNumber: "08015896905",
+    date: "12/03/2019",
+    message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
+    star: "starstar"
+  },
+  {
+    id: 8,
+    name: "Michael Bosco",
+    image: "man2.jpg",
+    email: "mikey@outlook.com",
+    phoneNumber: "07134676432",
+    date: "15/08/2002",
+    message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
+    star: "starstar"
+  },
+  {
+    id: 8,
+    name: "Nina Dobrev",
+    image: "woman1.jpg",
+    email: "nina26@soft.com",
+    phoneNumber: "09122734863",
+    date: "01/10/2014",
     message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
     star: "starstar"
   }

@@ -53,7 +53,7 @@
         </div>
 
         <!-- Review Body -->
-        <div class="reviewBody mt-14 w-full">
+        <div class="reviewBody mt-10 w-full">
           <div class="reviewContainer">
             <div
               class="
@@ -61,39 +61,16 @@
                 grid grid-cols-2
                 gap-16
                 pb-24
+                pt-12
+                pr-12
                 overflow-y-scroll overflow-x-hidden
               "
             >
-              <div class="card h-40 bg-white rounded-lg">
-                <div class="cardHeader"></div>
-                <div class="cardText"></div>
-                <div class="cardFooter"></div>
-              </div>
-              <div class="card w-96 h-40 bg-white rounded-lg">
-                <div class="cardHeader"></div>
-                <div class="cardText"></div>
-                <div class="cardFooter"></div>
-              </div>
-              <div class="card w-96 h-40 bg-white rounded-lg">
-                <div class="cardHeader"></div>
-                <div class="cardText"></div>
-                <div class="cardFooter"></div>
-              </div>
-              <div class="card w-96 h-40 bg-white rounded-lg">
-                <div class="cardHeader"></div>
-                <div class="cardText"></div>
-                <div class="cardFooter"></div>
-              </div>
-              <div class="card w-96 h-40 bg-white rounded-lg">
-                <div class="cardHeader"></div>
-                <div class="cardText"></div>
-                <div class="cardFooter"></div>
-              </div>
-              <div class="card w-96 h-40 bg-white rounded-lg">
-                <div class="cardHeader"></div>
-                <div class="cardText"></div>
-                <div class="cardFooter"></div>
-              </div>
+              <FeedbackCardDisplay
+                v-for="cardinfo in feedbackData"
+                :key="cardinfo.id"
+                :cardsSection="cardinfo"
+              />
             </div>
           </div>
         </div>
@@ -103,10 +80,33 @@
 </template>
 
 <script>
-export default {};
+import { feedbackData } from "@/assets/data.js";
+
+export default {
+  data() {
+    return {
+      feedbackData,
+    };
+  },
+};
 </script>
 
 <style scoped>
+::-webkit-scrollbar {
+  width: 5px;
+  transition: 0.6s;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#ddd, #00237b);
+  border-radius: 6px;
+  transition: all 0.6s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(#00237b, #ddd);
+  transition: all 0.6s ease-in-out;
+}
 .feedbackContainer .feedbackContent {
   width: 80vw;
   height: 100vh;
@@ -115,10 +115,5 @@ export default {};
 
 .cardContainer {
   height: 400px;
-}
-
-.cardContainer .card {
-  width: 520px;
-  height: 170px;
 }
 </style>

@@ -9,7 +9,9 @@
       mt-4
       transition
       duration-200
+      shadow-md
       border-2 border-[#c5c5c5]
+      hover:ring-[#c4c4c4] hover:ring-4 hover:outline-none
       w-full
     "
   >
