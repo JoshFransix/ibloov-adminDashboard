@@ -1,5 +1,5 @@
 <template>
-  <div class="relative card h-40 bg-white rounded-lg pr-8 pl-4 py-1">
+  <div class="relative card bg-white rounded-lg pr-8 pl-4 pt-1 pb-7">
     <div class="cardHeader flex justify-between items-center w-full">
       <div class="topLeft flex justify-between items-center">
         <img
@@ -45,8 +45,8 @@ export default {
 
 <style scoped>
 .card {
-  width: 520px;
-  height: 190px;
+  width: 100%;
+  height: 100%;
 }
 
 .text-small {

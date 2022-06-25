@@ -23,8 +23,8 @@ export default {
 };
 </script>
 
-<style scoped>
-body {
+<style >
+div {
   font-family: "Poppins", sans-serif;
 }
 

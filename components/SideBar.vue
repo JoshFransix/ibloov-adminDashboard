@@ -1,5 +1,17 @@
 <template>
-  <div class="sideBar fixed bg-white h-screen px-4 pt-12">
+  <aside
+    class="
+      sideBar
+      relative
+      bg-white
+      h-full
+      px-4
+      pt-12
+      overflow-hidden
+      min-h-screen
+      md:fixed md:z-50 md:block
+    "
+  >
     <div
       class="
         topContent
@@ -18,7 +30,7 @@
       <NuxtLink to="/dashboardPanel">
         <div class="dashboard flex items-center mb-12 active">
           <span class="mr-4"
-            ><img src="@/assets/img/dashboard.svg" alt=""
+            ><img src="@/assets/img/dashboard.svg" alt="" class="w-6 h-6"
           /></span>
           <span>Dashboard</span>
         </div>
@@ -28,21 +40,22 @@
       <NuxtLink to="/dashboardPanel/Feedback">
         <div class="feedback toggle flex items-center mb-12">
           <span class="mr-4"
-            ><img src="@/assets/img/comment.svg" alt=""
+            ><img src="@/assets/img/comment.svg" alt="" class="w-6 h-6"
           /></span>
           <span>Manage Feedback</span>
         </div>
       </NuxtLink>
 
       <!-- Logout -->
-      <NuxtLink to="/dashboardPanel/Logout">
-        <div class="logout toggle flex items-center mb-12">
-          <span class="mr-4"><img src="@/assets/img/logout.svg" alt="" /></span>
-          <span>Logout</span>
-        </div>
-      </NuxtLink>
+
+      <div class="logout toggle flex items-center mb-12">
+        <span class="mr-4"
+          ><img src="@/assets/img/logout.svg" alt="" class="w-6 h-6"
+        /></span>
+        <span>Logout</span>
+      </div>
     </div>
-  </div>
+  </aside>
 </template>
 
 <script>
@@ -51,8 +64,8 @@ export default {};
 
 <style scoped>
 .sideBar {
-  width: 20vw;
   transition: all 0.3s ease-in-out;
+  /* width: calc(2rem + 24px); */
 }
 .toggle span {
   filter: grayscale(100%);
@@ -60,5 +73,13 @@ export default {};
 .toggle .active span {
   filter: grayscale(0%);
   font-weight: bolder;
+}
+
+@media screen and (max-width: 768px) {
+  /* .sideBar {
+    position: fixed;
+    z-index: 999;
+    width: 300px;
+  } */
 }
 </style>
