@@ -11,12 +11,17 @@
       flex
       items-center
       justify-between
+      transition
+      duration-500
+      ease-in-out
       md:py-10 md:px-3
     "
   >
     <div class="cardLeft">
       <h1 class="text-sm mb-2">{{ cardsSection.title }}</h1>
-      <h1 class="text-5xl sm:text-3xl">{{ cardsSection.number }}</h1>
+      <h1 class="text-5xl lg:text-4xl sm:text-3xl">
+        {{ cardsSection.number }}
+      </h1>
     </div>
     <div class="cardRight">
       <img
@@ -34,5 +39,15 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6.span,
+p,
+div {
+  transition: all 0.3s ease-in-out;
+}
 </style>

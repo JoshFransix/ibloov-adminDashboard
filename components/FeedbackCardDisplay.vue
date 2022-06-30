@@ -1,45 +1,110 @@
 <template>
-  <div class="relative card bg-white rounded-lg pr-8 pl-4 pt-1 pb-7">
-    <div class="cardHeader flex justify-between items-center w-full">
-      <div class="topLeft flex justify-between items-center">
-        <img
-          :src="require(`@/assets/img/${cardsSection.image}`)"
-          alt=""
-          class="-mt-10 mr-3 w-20 h-20 rounded-full"
-        />
-        <div class="topLeftText flex flex-col justify-center items-center">
-          <h1 class="text-2xl font-medium text-[#263238]">
-            {{ cardsSection.name }}
-          </h1>
-          <div class="numberEmail flex justify-between items-center w-full">
-            <span class="number text-small">{{
-              cardsSection.phoneNumber
-            }}</span>
-            <span class="email text-small">{{ cardsSection.email }}</span>
+  <v-card class="relative card bg-white rounded-lg" elevation="0">
+    <v-card-text class="">
+      <div
+        class="
+          cardHeader
+          d-flex
+          justify-between
+          align-center
+          w-full
+          md:flex-col
+        "
+      >
+        <div class="topLeft d-flex justify-space-between align-center">
+          <v-avatar size="60" class="absolute -mt-16 mr-3 md:left-32 md:-mt-28">
+            <img :src="require(`@/assets/img/${cardsSection.image}`)" alt="" />
+          </v-avatar>
+          <div
+            class="
+              relative
+              left-16
+              topLeftText
+              d-flex
+              flex-col
+              justify-space-center
+              align-center
+              md:left-0 md:mt-8 md:w-48
+            "
+          >
+            <h1 class="text-2xl font-medium text-[#263238] md:text-xl">
+              {{ cardsSection.name }}
+            </h1>
+            <div class="numberEmail flex justify-between items-center w-full">
+              <span class="number text-small">{{
+                cardsSection.phoneNumber
+              }}</span>
+              <span class="email text-small">{{ cardsSection.email }}</span>
+            </div>
           </div>
         </div>
+        <div class="topRight">
+          <span class="date text-small md:hidden">{{ cardsSection.date }}</span>
+        </div>
       </div>
-      <div class="topRight">
-        <span class="date text-small">{{ cardsSection.date }}</span>
+      <div class="cardText">
+        <p class="font-normal text-sm text-[#010101] text-justify mt-6">
+          {{ cardsSection.message }}
+        </p>
       </div>
-    </div>
-    <div class="cardText">
-      <p class="font-normal text-sm text-[#010101] text-justify mt-6">
-        {{ cardsSection.message }}
-      </p>
-    </div>
-    <div class="cardFooter mt-7 flex justify-between w-full">
-      <span class="readMore text-small">Read More</span>
-      <span class="star text-[#00237B] text-small">{{
-        cardsSection.star
-      }}</span>
-    </div>
-  </div>
+    </v-card-text>
+
+    <v-card-actions>
+      <div class="cardFooter mt-2 flex justify-between w-full">
+        <v-btn
+          text
+          color="primary"
+          @click="reveal = true"
+          class="-mt-3 text-sm"
+        >
+          Read More
+        </v-btn>
+        <span class="star text-[#00237B] text-small">
+          <v-rating
+            color="yellow"
+            half-increments
+            dense
+            readonly
+            hover
+            length="5"
+            size="15"
+            value="5"
+          ></v-rating
+        ></span>
+      </div>
+    </v-card-actions>
+    <v-expand-transition>
+      <v-card
+        v-if="reveal"
+        class="transition-fast-in-fast-out v-card--reveal"
+        style="height: 100%"
+      >
+        <v-card-text class="pb-0">
+          <p class="text-lg text--primary">Origin</p>
+          <p>
+            late 16th century (as a noun denoting a place where alms were
+            distributed): from medieval Latin eleemosynarius, from late Latin
+            eleemosyna ‘alms’, from Greek eleēmosunē ‘compassion’
+          </p>
+        </v-card-text>
+        <v-card-actions class="pt-0">
+          <v-btn text color="teal accent-4" @click="reveal = false">
+            Read less
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-expand-transition>
+  </v-card>
 </template>
 
 <script>
 export default {
   props: ["cardsSection"],
+  data() {
+    return {
+      reveal: false,
+    };
+  },
 };
 </script>
 
@@ -53,5 +118,12 @@ export default {
   font-size: 9px;
   color: #00237b;
   font-weight: 600;
+}
+
+.v-card--reveal {
+  bottom: 0;
+  opacity: 1 !important;
+  position: absolute;
+  width: 100%;
 }
 </style>

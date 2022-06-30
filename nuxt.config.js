@@ -62,7 +62,15 @@ export default {
     '@nuxtjs/tailwindcss',
     // Google Fonts
     '@nuxtjs/google-fonts',
+    // Vuetify
+    '@nuxtjs/vuetify',
+    // Typescript
+    '@nuxt/typescript-build'
   ],
+
+  vuetify: {
+    optionsPath: './vuetify.options.js'
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -70,5 +78,8 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extractCSS: {
+      ignoreOrder: true
+    }
   }
 }

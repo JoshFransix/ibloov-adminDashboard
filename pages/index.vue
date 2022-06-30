@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-hidden" v-cloak>
+  <div class="overflow-hidden h-screen" v-cloak>
     <LoginForm
       v-for="inputInfo in formInput"
       :key="inputInfo.id"
@@ -30,5 +30,9 @@ div {
 
 [v-cloak] {
   display: none;
+}
+
+v-btn {
+  font-family: "Poppins", sans-serif;
 }
 </style>

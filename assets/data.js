@@ -8,6 +8,7 @@ export const formInput = [
         placeholder: 'Email Address',
         value: '',
         type: 'email',
+        class: "empty.svg",
         image: "email.svg"
       },
       {
@@ -15,6 +16,7 @@ export const formInput = [
         placeholder: 'Password',
         value: '',
         type: 'password',
+        class: "eye.svg",
         image: "password.svg"
       }
     ]
