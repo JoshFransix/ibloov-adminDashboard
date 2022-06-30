@@ -1,31 +1,27 @@
 <template v-cloak>
   <v-app>
-    <v-main>
+    <LazySideBar />
+    <v-main class="feedbackContainer bg-slate-200">
       <div
         class="
-          feedbackContainer
+          dashboardContainer
           relative
           d-flex
-          w-screen
-          h-screen
-          overflow-hidden
+          pl-[18rem]
+          lg:pl-[16rem]
+          md:pl-0
         "
       >
-        <LazySideBar />
-        <div
-          class="px-6 py-4 dashboardContent h-screen bg-white md:px-0 md:py-0"
-        >
+        <div class="mobilePadding dashboardContent md:bg-slate-200">
           <div
             class="
-              h-full
               w-full
               rounded-sm
               bg-slate-200
               d-flex
               flex-col
-              px-8
-              py-0
-              md:py-2 md:justify-start md:px-6 md:pt-4
+              lgPadding
+              md:py-2 md:justify-start
             "
           >
             <div
@@ -40,15 +36,30 @@
                 pb-4
               "
             >
-              <h1 class="text-3xl text-black lg:text-2xl md:text-xl md:mt-2">
+              <h1
+                class="
+                  text-3xl text-black
+                  lg:text-2xl
+                  md:text-xl md:mt-2 md:hidden
+                "
+              >
                 Manage Feedback
               </h1>
+              <div class="hidden md:block w-1/5 h-1/5">
+                <img src="@/assets/img/ibloov.svg" alt="" />
+              </div>
               <div class="md:hidden">
                 <LazyUserBox />
               </div>
               <div class="hidden md:block">
                 <LazySideBarMobile />
               </div>
+            </div>
+
+            <div class="mobileHeader">
+              <h1 class="hidden md:block text-xl mt-6 mb-4 font-black">
+                Manage Feedback
+              </h1>
             </div>
 
             <div
@@ -68,7 +79,10 @@
                     text-8xl text-[#00237B]
                     w-40
                     font-bold
-                    md:text-4xl md:mr-5 md:w-max
+                    lg:text-5xl
+                    md:text-4xl
+                    lg:w-20
+                    md:mr-5 md:w-max
                   "
                 >
                   {{ totalRating.toFixed(1) }}
@@ -120,16 +134,12 @@
                   class="
                     cardContainer
                     grid grid-cols-2
-                    gap-16
-                    pb-24
-                    pt-12
-                    pr-12
-                    overflow-y-scroll
+                    gap-x-4 gap-y-8
                     m-auto
                     w-full
                     h-full
                     xl:grid-cols-1
-                    lg:gap-x-0 lg:pr-0
+                    lg:gap-x-0
                   "
                 >
                   <LazyFeedbackCardDisplay
@@ -164,18 +174,18 @@ export default {
 [v-cloak] {
   display: none;
 }
+
 .feedbackContainer .feedbackContent {
   width: 100%;
 }
 
 .cardContainer {
-  height: 410px;
-  /* width: 100%; */
+  padding: 0rem 0rem 6rem 0;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1023px) {
   .cardContainer {
-    height: 480px;
+    padding: 3rem 0rem 6rem 0;
   }
 }
 </style>

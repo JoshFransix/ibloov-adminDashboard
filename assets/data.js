@@ -85,7 +85,7 @@ export const feedbackData = [
     id: 8,
     name: "Nina Dobrev",
     image: "woman1.jpg",
-    email: "nina26@soft.com",
+    email: "nina26@ggg.com",
     phoneNumber: "09122734863",
     date: "01/10/2014",
     message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",

@@ -12,7 +12,7 @@
       absolute
       temporary
       width="300"
-      class="px-4 pt-12 font-normal text-[#00237b]"
+      class="px-4 pt-12 font-normal text--basic"
     >
       <div
         class="
@@ -26,7 +26,7 @@
         "
       >
         <img src="@/assets/img/ibloov.svg" alt="" class="mx-auto w-1/2" />
-        <h3 class="text-sm mt-2 text-black font-normal">
+        <h3 class="text-sm mt-2 text--basic font-normal">
           Your next event in an instant
         </h3>
       </div>
@@ -85,5 +85,9 @@ a[aria-current="page"] {
   color: #00237b !important;
   font-weight: bolder;
   transition: 0.3s ease-in-out;
+}
+
+v-overlay__scrim {
+  background: red;
 }
 </style>

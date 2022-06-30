@@ -1,40 +1,26 @@
 <template v-cloak>
   <v-app>
-    <v-main>
+    <LazySideBar />
+    <v-main class="feedbackContainer bg-slate-200">
       <div
         class="
           dashboardContainer
           relative
           d-flex
-          w-screen
-          h-screen
-          overflow-hidden
+          pl-[18rem]
+          lg:pl-[16rem]
+          md:pl-0
         "
       >
-        <LazySideBar />
-        <div
-          class="
-            px-6
-            py-4
-            dashboardContent
-            h-screen
-            bg-white
-            m-auto
-            md:px-2 md:py-2
-          "
-        >
+        <div class="mobilePadding dashboardContent md:bg-slate-200">
           <div
             class="
-              h-full
               w-full
               rounded-sm
-              m-auto
               bg-slate-200
               d-flex
               flex-col
-              px-8
-              py-0
-              md:py-2 md:justify-start md:px-6 md:pt-4
+              md:py-2 md:justify-start
             "
           >
             <div
@@ -49,9 +35,18 @@
                 pb-4
               "
             >
-              <h1 class="text-3xl text-black lg:text-2xl md:text-xl md:mt-2">
+              <h1
+                class="
+                  text-3xl text-black
+                  lg:text-2xl
+                  md:text-xl md:mt-2 md:hidden
+                "
+              >
                 Admin Dashboard
               </h1>
+              <div class="hidden md:block w-1/5 h-1/5">
+                <img src="@/assets/img/ibloov.svg" alt="" />
+              </div>
               <div class="md:hidden">
                 <LazyUserBox />
               </div>
@@ -59,17 +54,24 @@
                 <LazySideBarMobile />
               </div>
             </div>
+            <div class="mobileHeader">
+              <h1 class="hidden md:block text-xl mt-6 mb-4 font-black">
+                Admin Dashboard
+              </h1>
+            </div>
             <div
               class="
                 bottomContent
                 w-full
+                h-full
+                m-auto
                 overflow-x-hidden
                 grid grid-cols-4
                 gap-x-10
                 mt-28
                 xl:grid-cols-2 xl:gap-y-10
                 md:mt-16
-                sm:grid-cols-1 sm:gap-y-5 sm:px-8 sm:pb-10
+                sm:grid-cols-1 sm:gap-y-5 sm:px-0 sm:pr-4 sm:pb-10 sm:mt-12
               "
             >
               <LazySmallCardDisplay
@@ -101,6 +103,11 @@ export default {
 [v-cloak] {
   display: none;
 }
+
+v-app {
+  height: 100vh;
+}
+
 .dashboardContainer .dashboardContent {
   width: 100%;
 }
@@ -109,18 +116,39 @@ div {
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 14px;
   transition: 0.6s;
 }
 
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(#00237b, #ddd);
-  border-radius: 6px;
+  border-radius: 0px;
   transition: 0.6s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(#ddd, #00237b);
   transition: 0.6s;
+}
+
+.mobilePadding {
+  padding: 0 3rem 0 2rem;
+}
+
+@media screen and (max-width: 1023px) {
+  .mobilePadding {
+    padding: 0 2rem 0 2rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .mobilePadding {
+    padding: 0 3rem 0 2rem;
+  }
+}
+@media screen and (max-width: 539px) {
+  .mobilePadding {
+    padding: 0 2rem 0 1rem;
+  }
 }
 </style>
