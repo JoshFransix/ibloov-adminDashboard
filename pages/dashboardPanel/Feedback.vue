@@ -1,4 +1,4 @@
-<template>
+<template v-cloak>
   <v-app>
     <v-main>
       <div
@@ -11,7 +11,7 @@
           overflow-hidden
         "
       >
-        <SideBar />
+        <LazySideBar />
         <div
           class="px-6 py-4 dashboardContent h-screen bg-white md:px-0 md:py-0"
         >
@@ -44,10 +44,10 @@
                 Manage Feedback
               </h1>
               <div class="md:hidden">
-                <UserBox />
+                <LazyUserBox />
               </div>
               <div class="hidden md:block">
-                <SideBarMobile />
+                <LazySideBarMobile />
               </div>
             </div>
 
@@ -132,7 +132,7 @@
                     lg:gap-x-0 lg:pr-0
                   "
                 >
-                  <FeedbackCardDisplay
+                  <LazyFeedbackCardDisplay
                     v-for="cardinfo in feedbackData"
                     :key="cardinfo.id"
                     :cardsSection="cardinfo"
@@ -161,6 +161,9 @@ export default {
 </script>
 
 <style scoped>
+[v-cloak] {
+  display: none;
+}
 .feedbackContainer .feedbackContent {
   width: 100%;
 }

@@ -1,4 +1,4 @@
-<template>
+<template v-cloak>
   <v-app>
     <v-main>
       <div
@@ -11,7 +11,7 @@
           overflow-hidden
         "
       >
-        <SideBar />
+        <LazySideBar />
         <div
           class="
             px-6
@@ -53,10 +53,10 @@
                 Admin Dashboard
               </h1>
               <div class="md:hidden">
-                <UserBox />
+                <LazyUserBox />
               </div>
               <div class="hidden md:block">
-                <SideBarMobile />
+                <LazySideBarMobile />
               </div>
             </div>
             <div
@@ -72,7 +72,7 @@
                 sm:grid-cols-1 sm:gap-y-5 sm:px-8 sm:pb-10
               "
             >
-              <SmallCardDisplay
+              <LazySmallCardDisplay
                 v-for="cardInfo in dashboardData"
                 :key="cardInfo.id"
                 :cardsSection="cardInfo"

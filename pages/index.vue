@@ -1,11 +1,11 @@
 <template>
   <div class="overflow-hidden h-screen" v-cloak>
-    <LoginForm
+    <LazyLoginForm
       v-for="inputInfo in formInput"
       :key="inputInfo.id"
       :inputSection="inputInfo"
     />
-    <LoginTexts />
+    <LazyLoginTexts />
   </div>
 </template>
 
@@ -24,8 +24,9 @@ export default {
 </script>
 
 <style >
+template,
 div {
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
 }
 
 [v-cloak] {
