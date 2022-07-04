@@ -11,8 +11,10 @@
           md:flex-col
         "
       >
-        <div class="topLeft d-flex justify-space-between align-center">
-          <v-avatar size="60" class="absolute -mt-16 mr-3 md:left-32 md:-mt-28">
+        <div
+          class="topLeft d-flex justify-space-between align-center md:flex-col"
+        >
+          <v-avatar size="60" class="absolute -mt-16 mr-3 md:-mt-12">
             <img :src="require(`@/assets/img/${cardsSection.image}`)" alt="" />
           </v-avatar>
           <div
@@ -50,7 +52,7 @@
     </v-card-text>
 
     <v-card-actions>
-      <div class="cardFooter mt-2 flex justify-between w-full">
+      <div class="cardFooter mt-2 flex justify-between items-center w-full">
         <v-btn
           text
           color="primary"
@@ -59,18 +61,21 @@
         >
           Read More
         </v-btn>
-        <span class="star text-[#00237B] text-small">
-          <v-rating
-            color="yellow"
-            half-increments
-            dense
-            readonly
-            hover
-            length="5"
-            size="15"
-            value="5"
-          ></v-rating
-        ></span>
+        <div class="justify-self-end flex-shrink-0">
+          <span class="star text-[#00237B] text-small">
+            <v-rating
+              v-model="rating"
+              color="yellow"
+              half-increments
+              dense
+              hover
+              length="5"
+              size="15"
+              value="5"
+            ></v-rating
+          ></span>
+          <span class="text-caption">({{ rating }})</span>
+        </div>
       </div>
     </v-card-actions>
     <v-expand-transition>
@@ -103,6 +108,12 @@ export default {
   data() {
     return {
       reveal: false,
+      rating: 4.3,
+      inject: {
+        theme: {
+          default: { isDark: false },
+        },
+      },
     };
   },
 };
@@ -125,5 +136,12 @@ export default {
   opacity: 1 !important;
   position: absolute;
   width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+  .absolute {
+    position: relative;
+    /* left: calc(100% - 10%); */
+  }
 }
 </style>

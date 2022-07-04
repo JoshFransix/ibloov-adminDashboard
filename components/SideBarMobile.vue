@@ -9,7 +9,7 @@
 
     <v-navigation-drawer
       v-model="drawer"
-      absolute
+      fixed
       temporary
       width="300"
       class="px-4 pt-12 font-normal text--basic"
@@ -51,16 +51,19 @@
             </v-list-item>
           </NuxtLink>
           <!-- Logout -->
-          <NuxtLink to="/">
-            <v-list-item class="mb-8">
+          <span>
+            <v-list-item class="mb-8" @click="waitRedirect">
               <v-img class="mr-4">
                 <img src="@/assets/img/logout.svg" alt="" class="w-6 h-6" />
               </v-img>
               <v-list-item-title>Logout</v-list-item-title>
             </v-list-item>
-          </NuxtLink>
+          </span>
         </v-list-item-group>
       </v-list>
+      <v-overlay :value="overlay" :fixed="fixed" class="z-[99999]">
+        <v-progress-circular indeterminate size="64"></v-progress-circular>
+      </v-overlay>
     </v-navigation-drawer>
   </div>
 </template>
@@ -70,13 +73,32 @@ export default {
   data() {
     return {
       drawer: false,
+      overlay: false,
+      fixed: true,
     };
+  },
+  watch: {
+    overlay(val) {
+      val &&
+        setTimeout(() => {
+          this.overlay = false;
+        }, 3000);
+    },
+  },
+  methods: {
+    waitRedirect() {
+      this.overlay = true;
+      setTimeout(() => {
+        window.location = "/";
+      }, 2000);
+    },
   },
 };
 </script>
 
-<style lang="scss" scoped>
-a:not([aria-current="page"]) {
+<style  scoped>
+a:not([aria-current="page"]),
+span {
   filter: grayscale(100%);
   transition: 0.3s ease-in-out;
 }
@@ -85,9 +107,5 @@ a[aria-current="page"] {
   color: #00237b !important;
   font-weight: bolder;
   transition: 0.3s ease-in-out;
-}
-
-v-overlay__scrim {
-  background: red;
 }
 </style>

@@ -19,6 +19,7 @@
               rounded-sm
               bg-slate-200
               d-flex
+              lgPadding
               flex-col
               md:py-2 md:justify-start
             "
@@ -63,7 +64,6 @@
               class="
                 bottomContent
                 w-full
-                h-full
                 m-auto
                 overflow-x-hidden
                 grid grid-cols-4
@@ -148,7 +148,7 @@ div {
 }
 @media screen and (max-width: 539px) {
   .mobilePadding {
-    padding: 0 2rem 0 1rem;
+    padding: 0 1rem 0 1rem;
   }
 }
 </style>

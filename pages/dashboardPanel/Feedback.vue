@@ -66,11 +66,12 @@
               class="
                 totalRating
                 mt-2
-                d-flex
-                justify-space-between
+                flex
+                justify-between
                 align-center
                 w-full
                 md:mt-6
+                sm:block
               "
             >
               <div class="ratingReview d-flex align-center">
@@ -105,9 +106,9 @@
                   </span>
                 </div>
               </div>
-              <div class="filter">
+              <div class="filter sm:mt-4 w-[120px]">
                 <label for="filter" class="text-[#999]">Filter By:</label>
-                <select
+                <!-- <select
                   name="filter"
                   id="filter"
                   class="
@@ -123,7 +124,15 @@
                   <option value="">Date</option>
                   <option value="">Time</option>
                   <option value="">Event</option>
-                </select>
+                </select> -->
+
+                <v-select
+                  :items="items"
+                  solo
+                  label=""
+                  class=""
+                  color="transparent"
+                ></v-select>
               </div>
             </div>
 
@@ -165,6 +174,7 @@ export default {
     return {
       totalRating: 3,
       feedbackData,
+      items: ["Date", "Time", "Event", ""],
     };
   },
 };

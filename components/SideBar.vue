@@ -76,16 +76,19 @@
               </v-list-item>
             </NuxtLink>
             <!-- Logout -->
-            <NuxtLink to="/">
-              <v-list-item class="mb-8">
+            <span>
+              <v-list-item class="mb-8" @click="waitRedirect">
                 <v-img class="mr-4">
                   <img src="@/assets/img/logout.svg" alt="" class="w-6 h-6" />
                 </v-img>
                 <v-list-item-title>Logout</v-list-item-title>
               </v-list-item>
-            </NuxtLink>
+            </span>
           </v-list-item-group>
         </v-list>
+        <v-overlay :value="overlay">
+          <v-progress-circular indeterminate size="64"></v-progress-circular>
+        </v-overlay>
       </aside>
     </div>
   </v-main>
@@ -96,7 +99,24 @@ export default {
   data() {
     return {
       showNav: false,
+      overlay: false,
     };
+  },
+  watch: {
+    overlay(val) {
+      val &&
+        setTimeout(() => {
+          this.overlay = false;
+        }, 3000);
+    },
+  },
+  methods: {
+    waitRedirect() {
+      this.overlay = true;
+      setTimeout(() => {
+        window.location = "/";
+      }, 2000);
+    },
   },
 };
 </script>
@@ -109,7 +129,8 @@ export default {
   /* width: calc(2rem + 24px); */
 }
 
-a:not([aria-current="page"]) {
+a:not([aria-current="page"]),
+span {
   filter: grayscale(100%);
   transition: 0.3s ease-in-out;
 }

@@ -12,21 +12,13 @@
           overflow-hidden
         "
       >
-        <div class="w-96 formWidth relative">
-          <v-form @submit.prevent="handleSubmit" ref="form">
+        <div class="formWidth relative">
+          <v-form @submit.prevent="handleSubmit" ref="form" v-model="valid">
             <div class="inputContainer">
               <h1 class="text-2xl mb-9 text-white font-bold">
                 {{ inputSection.title }}
               </h1>
 
-              <!-- <CustomInput
-            v-for="input in inputSection.inputs"
-            :key="input.id"
-            :input="input"
-            v-model="input.value"
-            :placeholder="input.placeholder"
-            :type="input.type"
-          /> -->
               <div class="">
                 <v-text-field
                   v-model="email"
@@ -38,7 +30,7 @@
                   background-color="#fff"
                   color="#00237b"
                   class="transition duration-200 outline-none w-full rounded-lg"
-                  prepend-inner-icon="mdi-email"
+                  prepend-inner-icon="$email"
                   required
                 />
               </div>
@@ -54,7 +46,7 @@
                   background-color="#fff"
                   color="#00237b"
                   class="transition duration-200 outline-none w-full rounded-lg"
-                  prepend-inner-icon="mdi-lock"
+                  prepend-inner-icon="$password"
                   :append-icon="passwordShow ? 'mdi-eye' : 'mdi-eye-off'"
                   @click:append="passwordShow = !passwordShow"
                   required
@@ -68,7 +60,17 @@
                 </div> -->
               </div>
             </div>
-            <div class="cta mt-6 flex justify-between items-center relative">
+            <div
+              class="
+                cta
+                mt-6
+                flex
+                justify-between
+                items-center
+                relative
+                md:block
+              "
+            >
               <div class="radioInput flex items-center relative w-max">
                 <!-- <CheckBox /> -->
 
@@ -87,6 +89,7 @@
             <v-card-actions>
               <v-btn
                 :loading="loading"
+                :disabled="!valid"
                 type="submit"
                 color="white"
                 class="
@@ -121,6 +124,7 @@ export default {
     return {
       loading: false,
       snackbar: false,
+      valid: false,
       passwordShow: false,
       password: "",
       passwordRules: [
@@ -137,6 +141,7 @@ export default {
   methods: {
     handleSubmit() {
       if (this.$refs.form.validate()) {
+        this.invalid = false;
         this.loading = true;
         setTimeout(() => {
           window.location = "/dashboardPanel/Dashboard";
@@ -174,6 +179,12 @@ export default {
   }
   .formWidth {
     width: 420px;
+  }
+}
+@media screen and (max-width: 490px) {
+  .formWidth {
+    width: 100%;
+    padding: 0 1rem;
   }
 }
 </style>
