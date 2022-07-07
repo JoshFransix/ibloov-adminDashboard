@@ -61,20 +61,19 @@
         >
           Read More
         </v-btn>
-        <div class="justify-self-end flex-shrink-0">
-          <span class="star text-[#00237B] text-small">
-            <v-rating
-              v-model="rating"
-              color="yellow"
-              half-increments
-              dense
-              hover
-              length="5"
-              size="15"
-              value="5"
-            ></v-rating
-          ></span>
-          <span class="text-caption">({{ rating }})</span>
+        <div class="">
+          <v-rating
+            class="inline-block"
+            v-model="rating"
+            color="yellow"
+            half-increments
+            dense
+            hover
+            length="5"
+            size="15"
+            value="5"
+          ></v-rating>
+          <span class="text-caption"> ({{ rating }})</span>
         </div>
       </div>
     </v-card-actions>
