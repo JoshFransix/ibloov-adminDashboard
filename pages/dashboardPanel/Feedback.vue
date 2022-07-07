@@ -102,7 +102,7 @@
                     ></v-rating>
                   </h2>
                   <span class="number w-max text-base text-[#00237B] md:text-sm"
-                    >{{ totalRating.toFixed(2) }} Reviews
+                    >{{ totalReviews() }} Reviews
                   </span>
                 </div>
               </div>
@@ -169,6 +169,13 @@ export default {
       feedbackData,
       items: ["Date", "Time", "Event"],
     };
+  },
+
+  methods: {
+    totalReviews() {
+      const count = feedbackData.filter((item) => item.id).length;
+      return count;
+    },
   },
 };
 </script>
