@@ -12,7 +12,7 @@
       fixed
       temporary
       width="300"
-      class="px-4 pt-12 font-normal text--basic"
+      class="px-4 pt-12 font-normal"
     >
       <div
         class="
@@ -26,67 +26,39 @@
         "
       >
         <img src="@/assets/img/ibloov.svg" alt="" class="mx-auto w-1/2" />
-        <h3 class="text-sm mt-2 text--basic font-normal">
-          Your next event in an instant
-        </h3>
+        <h3 class="text-sm mt-2 font-normal">Your next event in an instant</h3>
       </div>
-      <v-list nav class="mt-16 primary--text">
-        <v-list-item-group active-class=" text--basic">
+      <v-list nav class="mt-16">
+        <v-list-item-group>
           <!-- Dashboard -->
           <NuxtLink to="/dashboardPanel/Dashboard">
-            <v-list-item class="mb-8">
-              <div class="flex align-center">
-                <span
-                  class="
-                    bg-[#00237b]
-                    text-[#00237b]
-                    w-2.5
-                    h-2
-                    rounded-full
-                    mr-3
-                  "
-                ></span>
-                <v-img class="mr-4">
-                  <img
-                    src="@/assets/img/dashboard.svg"
-                    alt=""
-                    class="w-4 h-4"
-                  />
-                </v-img>
-                <v-list-item-title>Dashboard</v-list-item-title>
-              </div>
-            </v-list-item>
+            <li class="mb-12 flex align-center ml-2">
+              <span class="bg-[#00237b] w-2.5 h-2 rounded-full mr-3"></span>
+              <v-img class="mr-4">
+                <img src="@/assets/img/dashboard.svg" alt="" class="w-4 h-4" />
+              </v-img>
+              <v-list-item-title>Dashboard</v-list-item-title>
+            </li>
           </NuxtLink>
           <!-- Manage Feedback -->
           <NuxtLink to="/dashboardPanel/Feedback">
-            <v-list-item class="mb-8">
-              <div class="flex align-center">
-                <span
-                  class="
-                    bg-[#00237b]
-                    text-[#00237b]
-                    w-2.5
-                    h-2
-                    rounded-full
-                    mr-3
-                  "
-                ></span>
-                <v-img class="mr-4">
-                  <img src="@/assets/img/comment.svg" alt="" class="w-4 h-4" />
-                </v-img>
-                <v-list-item-title>Manage Feedback</v-list-item-title>
-              </div>
-            </v-list-item>
+            <li class="mb-8 flex align-center">
+              <span class="bg-[#00237b] w-2.5 h-2 rounded-full mr-3"></span>
+              <v-img class="mr-4">
+                <img src="@/assets/img/comment.svg" alt="" class="w-4 h-4" />
+              </v-img>
+              <v-list-item-title>Manage Feedback</v-list-item-title>
+            </li>
           </NuxtLink>
           <!-- Logout -->
-          <span>
+          <div class="logout">
             <v-list-item class="mb-8" @click="waitRedirect">
               <v-img class="mr-4">
                 <img src="@/assets/img/logout.svg" alt="" class="w-4 h-4" />
               </v-img>
               <v-list-item-title>Logout</v-list-item-title>
             </v-list-item>
-          </span>
+          </div>
         </v-list-item-group>
       </v-list>
       <v-overlay :value="overlay" :fixed="fixed" class="z-[99999]">
@@ -125,8 +97,11 @@ export default {
 </script>
 
 <style  scoped>
+a {
+  color: #00237b !important;
+}
 a:not([aria-current="page"]),
-span {
+.logout {
   filter: grayscale(100%);
   transition: 0.3s ease-in-out;
 }
