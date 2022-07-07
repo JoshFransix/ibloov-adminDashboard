@@ -106,33 +106,26 @@
                   </span>
                 </div>
               </div>
-              <div class="filter sm:mt-4 w-[120px]">
+              <div class="filter sm:mt-4" transition="scale-transition">
                 <label for="filter" class="text-[#999]">Filter By:</label>
-                <!-- <select
+                <select
                   name="filter"
                   id="filter"
                   class="
-                    bg-transparent
-                    appearance-none
                     px-2
                     py-2
-                    rounded-lg
+                    rounded-sm
                     cursor-pointer
                     text-[#00237B]
+                    bg-white
+                    outline-none
+                    border-2 border-[#ccc]
                   "
                 >
                   <option value="">Date</option>
                   <option value="">Time</option>
                   <option value="">Event</option>
-                </select> -->
-
-                <v-select
-                  :items="items"
-                  solo
-                  label=""
-                  class=""
-                  color="transparent"
-                ></v-select>
+                </select>
               </div>
             </div>
 
@@ -174,7 +167,7 @@ export default {
     return {
       totalRating: 3,
       feedbackData,
-      items: ["Date", "Time", "Event", ""],
+      items: ["Date", "Time", "Event"],
     };
   },
 };

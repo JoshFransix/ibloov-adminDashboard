@@ -47,7 +47,9 @@ h4,
 h5,
 h6.span,
 p,
-div {
+div,
+select,
+option {
   transition: all 0.3s ease-in-out;
 }
 </style>
