@@ -66,6 +66,7 @@
               class="
                 totalRating
                 mt-2
+                mb-6
                 flex
                 justify-between
                 align-center
@@ -77,8 +78,8 @@
               <div class="ratingReview d-flex align-center">
                 <h1
                   class="
-                    text-8xl text-[#00237B]
-                    w-40
+                    text-6xl text-[#00237B]
+                    w-28
                     font-bold
                     lg:text-5xl
                     md:text-4xl
@@ -101,7 +102,14 @@
                       value="5"
                     ></v-rating>
                   </h2>
-                  <span class="number w-max text-base text-[#00237B] md:text-sm"
+                  <span
+                    class="
+                      number
+                      w-max
+                      text-base text-[#00237B]
+                      md:text-sm
+                      font-extrabold
+                    "
                     >{{ totalReviews() }} Reviews
                   </span>
                 </div>

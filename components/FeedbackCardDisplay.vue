@@ -1,26 +1,17 @@
 <template>
   <v-card class="relative card bg-white rounded-lg" elevation="0">
     <v-card-text class="">
-      <div
-        class="
-          cardHeader
-          d-flex
-          justify-between
-          align-center
-          w-full
-          md:flex-col
-        "
-      >
+      <div class="cardHeader d-flex justify-between -mt-2 w-full md:flex-col">
         <div
           class="topLeft d-flex justify-space-between align-center md:flex-col"
         >
-          <v-avatar size="60" class="absolute -mt-16 mr-3 md:-mt-12">
+          <v-avatar size="75" class="absolute -mt-8 mr-3 md:-mt-12">
             <img :src="require(`@/assets/img/${cardsSection.image}`)" alt="" />
           </v-avatar>
           <div
             class="
               relative
-              left-16
+              left-24
               topLeftText
               d-flex
               flex-col
@@ -29,7 +20,7 @@
               md:left-0 md:mt-8 md:w-48
             "
           >
-            <h1 class="text-2xl font-medium text-[#263238] md:text-xl">
+            <h1 class="text-xl font-medium text-[#263238] md:text-xl calcWidth">
               {{ cardsSection.name }}
             </h1>
             <div class="numberEmail flex justify-between items-center w-full">
@@ -40,7 +31,7 @@
             </div>
           </div>
         </div>
-        <div class="topRight">
+        <div class="topRight mt-7">
           <span class="date text-small md:hidden">{{ cardsSection.date }}</span>
         </div>
       </div>
@@ -68,6 +59,7 @@
           <v-rating
             class="inline-block"
             v-model="rating"
+            background-color="accent "
             color="yellow"
             half-increments
             dense
@@ -76,7 +68,7 @@
             size="15"
             value="5"
           ></v-rating>
-          <span class="text-caption"> ({{ rating }})</span>
+          <span class="text-yellow-400 text-xs"> {{ rating.toFixed(1) }}</span>
         </div>
       </div>
     </v-card-actions>
@@ -131,6 +123,10 @@ export default {
   font-size: 9px;
   color: #00237b;
   font-weight: 600;
+}
+
+.calcWidth {
+  width: 200px;
 }
 
 .v-card--reveal {
