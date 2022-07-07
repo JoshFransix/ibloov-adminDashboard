@@ -53,14 +53,17 @@
 
     <v-card-actions>
       <div class="cardFooter mt-2 flex justify-between items-center w-full">
-        <v-btn
+        <!-- <v-btn
           text
           color="primary"
           @click="reveal = true"
           class="-mt-3 text-sm"
         >
           Read More
-        </v-btn>
+        </v-btn> -->
+        <button @click="reveal = true" class="text-xs text-[#00237b]">
+          Read More
+        </button>
         <div class="">
           <v-rating
             class="inline-block"

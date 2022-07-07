@@ -114,10 +114,8 @@
                   class="
                     px-2
                     py-2
-                    rounded-sm
                     cursor-pointer
                     text-[#00237B]
-                    bg-white
                     outline-none
                     border-2 border-[#ccc]
                   "
