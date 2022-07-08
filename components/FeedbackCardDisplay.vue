@@ -1,7 +1,17 @@
 <template>
   <v-card class="relative card bg-white rounded-lg pr-4" elevation="0">
     <v-card-text class="">
-      <div class="cardHeader d-flex justify-between -mt-2 w-full md:flex-col">
+      <div
+        class="
+          cardHeader
+          d-flex
+          justify-space-between
+          -mt-2
+          w-full
+          cardMargin
+          md:flex-col
+        "
+      >
         <div
           class="topLeft d-flex justify-space-between align-center md:flex-col"
         >
@@ -17,7 +27,7 @@
               flex-col
               justify-space-center
               align-center
-              md:left-0 md:mt-8 md:w-48
+              md:left-0 md:mt-0 md:w-1/2
             "
           >
             <h1 class="text-xl font-medium text-[#263238] md:text-xl calcWidth">
@@ -32,11 +42,14 @@
           </div>
         </div>
         <div class="topRight mt-7">
-          <span class="date text-small md:hidden">{{ cardsSection.date }}</span>
+          <span
+            class="date text-small md:absolute md:top-[10px] md:right-[10px]"
+            >{{ cardsSection.date }}</span
+          >
         </div>
       </div>
       <div class="cardText mb-0">
-        <p class="font-normal text-sm text-[#010101] mt-6">
+        <p class="font-normal text-sm text-[#010101] mt-0 md:mt-0">
           {{ cardsSection.message }}
         </p>
       </div>
@@ -52,7 +65,10 @@
         >
           Read More
         </v-btn> -->
-        <button @click="reveal = true" class="text-xs text-[#00237b] font-bold">
+        <button
+          @click="reveal = true"
+          class="text-xs text-[#00237b] font-bold ml-2"
+        >
           Read More
         </button>
         <div class="">
@@ -136,10 +152,18 @@ export default {
   width: 100%;
 }
 
+.cardMargin {
+  margin-bottom: 1rem;
+}
+
 @media screen and (max-width: 767px) {
   .absolute {
     position: relative;
     /* left: calc(100% - 10%); */
+  }
+
+  .cardMargin {
+    margin-bottom: 0rem;
   }
 }
 </style>

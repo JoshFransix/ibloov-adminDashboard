@@ -69,7 +69,7 @@
                 mt-28
                 xl:grid-cols-2 xl:gap-y-10
                 md:mt-16
-                sm:grid-cols-1 sm:gap-y-5 sm:px-0 sm:pr-4 sm:pb-10 sm:mt-12
+                sm:grid-cols-1 sm:gap-y-5 sm:px-0 sm:pr-0 sm:pb-10 sm:mt-12
               "
             >
               <LazySmallCardDisplay
