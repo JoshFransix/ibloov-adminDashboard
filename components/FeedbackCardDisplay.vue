@@ -1,5 +1,5 @@
 <template>
-  <v-card class="relative card bg-white rounded-lg" elevation="0">
+  <v-card class="relative card bg-white rounded-lg pr-4" elevation="0">
     <v-card-text class="">
       <div class="cardHeader d-flex justify-between -mt-2 w-full md:flex-col">
         <div
@@ -35,15 +35,15 @@
           <span class="date text-small md:hidden">{{ cardsSection.date }}</span>
         </div>
       </div>
-      <div class="cardText">
-        <p class="font-normal text-sm text-[#010101] text-justify mt-6">
+      <div class="cardText mb-0">
+        <p class="font-normal text-xs text-[#010101] mt-6">
           {{ cardsSection.message }}
         </p>
       </div>
     </v-card-text>
 
     <v-card-actions>
-      <div class="cardFooter mt-2 flex justify-between items-center w-full">
+      <div class="cardFooter mt-0 flex justify-between items-center w-full">
         <!-- <v-btn
           text
           color="primary"
@@ -52,16 +52,16 @@
         >
           Read More
         </v-btn> -->
-        <button @click="reveal = true" class="text-xs text-[#00237b]">
+        <button @click="reveal = true" class="text-xs text-[#00237b] font-bold">
           Read More
         </button>
         <div class="">
           <v-rating
             class="inline-block"
             v-model="rating"
-            background-color="accent "
-            color="yellow"
-            half-increments
+            color="starfilled"
+            background-color="starempty"
+            empty-icon="$ratingFull"
             dense
             hover
             length="5"
@@ -102,7 +102,7 @@ export default {
   data() {
     return {
       reveal: false,
-      rating: 4.3,
+      rating: 3,
       inject: {
         theme: {
           default: { isDark: false },
@@ -126,7 +126,7 @@ export default {
 }
 
 .calcWidth {
-  width: 200px;
+  width: 160px;
 }
 
 .v-card--reveal {

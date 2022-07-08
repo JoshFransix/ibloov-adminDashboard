@@ -65,8 +65,8 @@ export const feedbackData = [
     id: 8,
     name: "David Beckham",
     image: "man1.jpg",
-    email: "good233@ymail.com",
-    phoneNumber: "08015896905",
+    email: "good@ymail.com",
+    phoneNumber: "08011123411",
     date: "12/03/2019",
     message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
     star: "starstar"

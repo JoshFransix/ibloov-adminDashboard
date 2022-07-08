@@ -79,11 +79,12 @@
                 <h1
                   class="
                     text-6xl text-[#00237B]
-                    w-28
-                    font-bold
+                    w-32
+                    font-black
+                    tracking-[0.3rem]
                     lg:text-5xl
                     md:text-4xl
-                    lg:w-20
+                    lg:w-20 lg:mr-5
                     md:mr-5 md:w-max
                   "
                 >
@@ -93,12 +94,14 @@
                   <h2 class="">
                     <v-rating
                       v-model="totalRating"
-                      color="yellow"
+                      color="starfilled"
+                      background-color="starempty"
+                      empty-icon="$ratingFull"
                       half-increments
                       dense
                       hover
                       length="5"
-                      size="20"
+                      size="25"
                       value="5"
                     ></v-rating>
                   </h2>
@@ -171,7 +174,7 @@ import { feedbackData } from "@/assets/data.js";
 export default {
   data() {
     return {
-      totalRating: 3,
+      totalRating: 5,
       feedbackData,
       items: ["Date", "Time", "Event"],
     };

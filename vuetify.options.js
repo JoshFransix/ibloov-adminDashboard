@@ -11,7 +11,9 @@ export default {
         basic: '#fff',
         accent: '#8c9eff',
         // error: '#b71c1c',
-        error: '#dc143c'
+        error: '#dc143c',
+        starfilled: '#fba300',
+        starempty: '#fcd07f'
       }
     }
   },
