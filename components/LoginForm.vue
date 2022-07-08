@@ -74,7 +74,12 @@
               <div class="radioInput flex items-center relative w-max">
                 <!-- <CheckBox /> -->
 
-                <v-switch color="#fff" inset label="Remember me"></v-switch>
+                <v-switch
+                  color="#fff"
+                  input-value="true"
+                  label="Remember me"
+                  class="text-slate-200"
+                ></v-switch>
               </div>
               <NuxtLink to="/">
                 <v-btn
