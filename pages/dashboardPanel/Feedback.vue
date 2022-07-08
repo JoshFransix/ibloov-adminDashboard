@@ -7,8 +7,8 @@
           dashboardContainer
           relative
           d-flex
-          pl-[18rem]
-          lg:pl-[16rem]
+          pl-[20rem]
+          lg:pl-[19rem]
           md:pl-0
         "
       >
@@ -32,7 +32,7 @@
                 align-center
                 justify-space-between
                 font-bold
-                pt-4
+                pt-12
                 pb-4
               "
             >
@@ -65,8 +65,8 @@
             <div
               class="
                 totalRating
-                mt-2
-                mb-6
+                mt-9
+                mb-8
                 flex
                 justify-between
                 align-center

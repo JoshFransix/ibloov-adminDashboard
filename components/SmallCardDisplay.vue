@@ -5,7 +5,7 @@
       text-white
       w-full
       h-max
-      rounded-xl
+      rounded-[15px]
       px-5
       py-9
       flex

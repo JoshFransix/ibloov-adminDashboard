@@ -56,7 +56,7 @@
               <v-img class="mr-4 ml-4">
                 <img src="@/assets/img/logout.svg" alt="" class="w-4 h-4" />
               </v-img>
-              <v-list-item-title>Logout</v-list-item-title>
+              <v-list-item-title class="text-[#bbb]">Logout</v-list-item-title>
             </v-list-item>
           </div>
         </v-list-item-group>
@@ -102,9 +102,12 @@ a {
 }
 
 a:not([aria-current="page"]),
+a:not(.nuxt-link-exact-active),
+a:not(.nuxt-link-active),
 .logout {
   filter: grayscale(100%);
   transition: 0.3s ease-in-out;
+  color: #bbb;
 }
 
 a span {
@@ -116,7 +119,9 @@ a span {
   display: none;
 }
 
-a[aria-current="page"] {
+a[aria-current="page"],
+a.nuxt-link-exact-active,
+a.nuxt-link-active {
   position: relative;
   font-weight: bolder;
   transition: 0.3s ease-in-out;

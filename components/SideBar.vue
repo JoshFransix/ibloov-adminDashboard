@@ -1,6 +1,6 @@
 <template>
   <v-main class="fixed z-50 bg-white">
-    <div class="md:z-50 md:hidden">
+    <div class="md:z-50 md:hidden pr-8">
       <aside class="sideBar text-[#00237b] h-full min-h-screen">
         <div
           class="
@@ -13,12 +13,8 @@
             justify-center
           "
         >
-          <img
-            src="@/assets/img/ibloov.svg"
-            alt=""
-            class="mx-auto w-1/2 lg:w-1/3"
-          />
-          <h3 class="text-sm mt-2 text-black">Your next event in an instant</h3>
+          <img src="@/assets/img/ibloov.svg" alt="" class="mx-auto w-[60%]" />
+          <h3 class="text-xs mt-2 text-black">Your next event in an instant</h3>
         </div>
         <!-- <div class="bottomContent mt-20 ml-4 toggle">
             
@@ -82,7 +78,9 @@
                 <v-img class="mr-4 ml-4">
                   <img src="@/assets/img/logout.svg" alt="" class="w-4 h-4" />
                 </v-img>
-                <v-list-item-title>Logout</v-list-item-title>
+                <v-list-item-title class="text-[#bbb]"
+                  >Logout</v-list-item-title
+                >
               </v-list-item>
             </div>
           </v-list-item-group>
@@ -134,9 +132,12 @@ a {
 }
 
 a:not([aria-current="page"]),
+a:not(.nuxt-link-exact-active),
+a:not(.nuxt-link-active),
 .logout {
   filter: grayscale(100%);
   transition: 0.3s ease-in-out;
+  color: #bbb;
 }
 
 a span {
@@ -148,7 +149,9 @@ a span {
   display: none;
 }
 
-a[aria-current="page"] {
+a[aria-current="page"],
+a.nuxt-link-exact-active,
+a.nuxt-link-active {
   position: relative;
   font-weight: bolder;
   transition: 0.3s ease-in-out;
