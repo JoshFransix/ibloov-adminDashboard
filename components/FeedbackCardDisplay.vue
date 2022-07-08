@@ -36,13 +36,13 @@
         </div>
       </div>
       <div class="cardText mb-0">
-        <p class="font-normal text-xs text-[#010101] mt-6">
+        <p class="font-normal text-sm text-[#010101] mt-6">
           {{ cardsSection.message }}
         </p>
       </div>
     </v-card-text>
 
-    <v-card-actions>
+    <v-card-actions class="mt-0 pt-0">
       <div class="cardFooter mt-0 flex justify-between items-center w-full">
         <!-- <v-btn
           text

@@ -26,14 +26,12 @@
           >
             <div
               class="
-                topContent
+                topSection
                 w-full
                 d-flex
                 align-center
                 justify-space-between
                 font-bold
-                pt-12
-                pb-4
               "
             >
               <h1
@@ -62,7 +60,7 @@
             </div>
             <div
               class="
-                bottomContent
+                bottomSection
                 w-full
                 m-auto
                 overflow-x-hidden
@@ -135,15 +133,25 @@ div {
   padding: 0 3rem 0 2rem;
 }
 
+.topSection {
+  padding: 3rem 0 1rem 0;
+}
+
 @media screen and (max-width: 1023px) {
   .mobilePadding {
     padding: 0 2rem 0 2rem;
+  }
+  .topSection {
+    padding: 2rem 0 1rem 0;
   }
 }
 
 @media screen and (max-width: 767px) {
   .mobilePadding {
     padding: 0 3rem 0 2rem;
+  }
+  .topSection {
+    padding: 1rem 0;
   }
 }
 @media screen and (max-width: 539px) {

@@ -4,7 +4,6 @@
       <aside class="sideBar text-[#00237b] h-full min-h-screen">
         <div
           class="
-            topContent
             mx-auto
             text-center
             d-flex

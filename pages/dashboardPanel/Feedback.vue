@@ -32,8 +32,6 @@
                 align-center
                 justify-space-between
                 font-bold
-                pt-12
-                pb-4
               "
             >
               <h1
@@ -65,8 +63,7 @@
             <div
               class="
                 totalRating
-                mt-9
-                mb-8
+                ratingPadding
                 flex
                 justify-between
                 align-center
@@ -101,7 +98,7 @@
                       dense
                       hover
                       length="5"
-                      size="25"
+                      size="23"
                       value="5"
                     ></v-rating>
                   </h2>
@@ -109,7 +106,7 @@
                     class="
                       number
                       w-max
-                      text-base text-[#00237B]
+                      text-xl text-[#00237B]
                       md:text-sm
                       font-extrabold
                     "
@@ -117,7 +114,7 @@
                   </span>
                 </div>
               </div>
-              <div class="filter sm:mt-4" transition="scale-transition">
+              <div class="sm:mt-4" transition="scale-transition">
                 <label for="filter" class="text-[#999]">Filter By:</label>
                 <select
                   name="filter"
@@ -145,7 +142,7 @@
                   class="
                     cardContainer
                     grid grid-cols-2
-                    gap-x-4 gap-y-8
+                    gap-x-8 gap-y-14
                     m-auto
                     w-full
                     h-full
@@ -202,9 +199,31 @@ export default {
   padding: 0rem 0rem 6rem 0;
 }
 
+.topContent {
+  padding: 3rem 0 1rem 0;
+}
+
+.ratingPadding {
+  margin: 2.5rem 0 3rem 0;
+}
+
 @media screen and (max-width: 1023px) {
   .cardContainer {
     padding: 3rem 0rem 6rem 0;
+  }
+
+  .topContent {
+    padding: 2rem 0 1rem 0;
+  }
+
+  .ratingPadding {
+    margin: 2.5rem 0 0rem 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .topContent {
+    padding: 1rem 0;
   }
 }
 </style>
