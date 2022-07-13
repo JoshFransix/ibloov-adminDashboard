@@ -75,9 +75,9 @@
                 <!-- <CheckBox /> -->
 
                 <v-switch
+                  label="Remember me"
                   color="#fff"
                   input-value="true"
-                  label="Remember me"
                   class="text-slate-200"
                 ></v-switch>
               </div>
