@@ -85,21 +85,20 @@
                     md:mr-5 md:w-max
                   "
                 >
-                  {{ totalRating.toFixed(1) }}
+                  {{ totalRating() }}
                 </h1>
                 <div class="star">
                   <h2 class="">
                     <v-rating
-                      v-model="totalRating"
+                      v-model="totalRatingValue"
                       color="starfilled"
                       background-color="starempty"
                       empty-icon="$ratingFull"
                       half-increments
                       dense
-                      hover
+                      readonly
                       length="5"
                       size="23"
-                      value="5"
                     ></v-rating>
                   </h2>
                   <span
@@ -171,7 +170,8 @@ import { feedbackData } from "@/assets/data.js";
 export default {
   data() {
     return {
-      totalRating: 5,
+      totalRatingValue: 0,
+      newRating: [],
       feedbackData,
       items: ["Date", "Time", "Event"],
     };
@@ -181,6 +181,18 @@ export default {
     totalReviews() {
       const count = feedbackData.filter((item) => item.id).length;
       return count;
+    },
+    totalRating() {
+      var rating = feedbackData;
+      var sum = 0;
+      var total = 0;
+      for (var i = 0; i < rating.length; i++) {
+        sum += rating[i].star;
+      }
+      total = sum;
+      const finalTotal = total / this.totalReviews();
+      this.totalRatingValue = finalTotal;
+      return finalTotal.toFixed(1);
     },
   },
 };

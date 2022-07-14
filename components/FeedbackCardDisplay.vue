@@ -66,7 +66,7 @@
         <div class="">
           <v-rating
             class="inline-block"
-            v-model="rating"
+            v-model="cardsSection.star"
             color="starfilled"
             background-color="starempty"
             empty-icon="$ratingFull"
@@ -74,9 +74,10 @@
             hover
             length="5"
             size="15"
-            value="5"
           ></v-rating>
-          <span class="text-yellow-400 text-xs"> {{ rating.toFixed(1) }}</span>
+          <span class="text-yellow-400 text-xs">
+            {{ cardsSection.star.toFixed(1) }}</span
+          >
         </div>
       </div>
     </v-card-actions>
@@ -106,17 +107,36 @@
 
 <script>
 export default {
-  props: ["cardsSection"],
+  props: ["cardsSection", "modelValue"],
   data() {
     return {
       reveal: false,
-      rating: 3,
+      // rating: cardsSection.star,
       inject: {
         theme: {
           default: { isDark: false },
         },
       },
     };
+  },
+  computed: {
+    starValue: {
+      get() {
+        return this.rating;
+      },
+      set(value) {
+        this.$emit("star-rating", value);
+        this.rating = value;
+
+        // return this.rating;
+      },
+      // this.$emit("update:modelValue", value);
+
+      // const value = 4;
+      // this.$emit("changeStar", this.rating);
+      // console.log(this.rating);
+      // return value;
+    },
   },
 };
 </script>
