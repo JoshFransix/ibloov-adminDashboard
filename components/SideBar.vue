@@ -152,12 +152,12 @@ a[aria-current="page"],
 a.nuxt-link-exact-active,
 a.nuxt-link-active {
   position: relative;
-  font-weight: bolder;
+  font-weight: bolder !important;
   transition: 0.3s ease-in-out;
 }
 
 a[aria-current="page"] span {
-  display: block;
+  display: block !important;
 }
 
 @media screen and (max-width: 1023px) {

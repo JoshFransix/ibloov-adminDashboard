@@ -1,21 +1,11 @@
 <template>
   <div>
     <div class="bg-[#00237B] rounded-full">
-      <v-app-bar-nav-icon
-        color="basic"
-        @click="drawer = true"
-      ></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon color="basic" @click="drawer = true"></v-app-bar-nav-icon>
     </div>
 
-    <v-navigation-drawer
-      v-model="drawer"
-      fixed
-      temporary
-      width="300"
-      class="px-4 pt-12 font-normal"
-    >
-      <div
-        class="
+    <v-navigation-drawer v-model="drawer" fixed temporary width="300" class="px-4 pt-12 font-normal">
+      <div class="
           topContent
           mx-auto
           text-center
@@ -23,8 +13,7 @@
           flex-col
           align-center
           justify-center
-        "
-      >
+        ">
         <img src="@/assets/img/ibloov.svg" alt="" class="mx-auto w-1/2" />
         <h3 class="text-sm mt-2 font-normal">Your next event in an instant</h3>
       </div>
@@ -123,11 +112,11 @@ a[aria-current="page"],
 a.nuxt-link-exact-active,
 a.nuxt-link-active {
   position: relative;
-  font-weight: bolder;
+  font-weight: bolder !important;
   transition: 0.3s ease-in-out;
 }
 
 a[aria-current="page"] span {
-  display: block;
+  display: block !important;
 }
 </style>

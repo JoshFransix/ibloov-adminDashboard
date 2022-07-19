@@ -62,7 +62,7 @@ export const feedbackData = [
     star: 3
   },
   {
-    id: 8,
+    id: 9,
     name: "David Beckham",
     image: "man1.jpg",
     email: "good@ymail.com",
@@ -72,7 +72,7 @@ export const feedbackData = [
     star: 3
   },
   {
-    id: 8,
+    id: 10,
     name: "Michael Bosco",
     image: "man2.jpg",
     email: "mikey@outlook.com",
@@ -82,7 +82,7 @@ export const feedbackData = [
     star: 1
   },
   {
-    id: 8,
+    id: 11,
     name: "Nina Dobrev",
     image: "woman1.jpg",
     email: "nina26@ggg.com",
@@ -92,7 +92,7 @@ export const feedbackData = [
     star: 3
   },
   {
-    id: 8,
+    id: 12,
     name: "Nina Dobrev",
     image: "woman1.jpg",
     email: "nina26@ggg.com",
@@ -102,7 +102,7 @@ export const feedbackData = [
     star: 5
   },
   {
-    id: 8,
+    id: 13,
     name: "Nina Dobrev",
     image: "woman1.jpg",
     email: "nina26@ggg.com",
@@ -112,7 +112,7 @@ export const feedbackData = [
     star: 2
   },
   {
-    id: 8,
+    id: 14,
     name: "Nina Dobrev",
     image: "woman1.jpg",
     email: "nina26@ggg.com",
@@ -122,7 +122,7 @@ export const feedbackData = [
     star: 5
   },
   {
-    id: 8,
+    id: 15,
     name: "Nina Dobrev",
     image: "woman1.jpg",
     email: "nina26@ggg.com",
