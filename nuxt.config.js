@@ -19,7 +19,10 @@ export default {
       }
     ],
     script: [
-      { hid: 'vuex', src: 'https://unpkg.com/vuex@3.6.2', defer: true }
+      { hid: 'vuex', src: 'https://unpkg.com/vuex@3.6.2', defer: true },
+      {
+        src: 'https://d17nz991552y2g.cloudfront.net/app/js/jqueryandencoder.ffa5afd5124fbedceea9.js'
+      }
     ]
   },
 

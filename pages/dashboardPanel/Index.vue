@@ -1,65 +1,69 @@
 <template>
   <div>
-    <div id='zohoSupportWebToCase' align='center'>
-      <form name='zsWebToCase_757212000000220001' id='zsWebToCase_757212000000220001'
-        action='https://desk.zoho.com/support/WebToCase' method='POST' onSubmit='return zsValidateMandatoryFields()'
-        enctype='multipart/form-data'> <input type='hidden' name='xnQsjsdp'
-          value='edbsnedd452fade55818564e449cede7e03fa' />
-        <input type='hidden' name='xmIwtLD'
-          value='edbsn49fa765c0bc9d94d0e3323e82365d1e36ccc292d57ef2e8e74b9fe52799501bf' />
-        <input type='hidden' name='xJdfEaS' value='' /> <input type='hidden' name='actionType' value='Q2FzZXM=' />
+    <div id="zohoSupportWebToCase" align='center'>
+      <form name="zsWebToCase_757212000000220001" id="zsWebToCase_757212000000220001"
+        ref="zsWebToCase_757212000000220001" action="https://desk.zoho.com/support/WebToCase" method='POST'
+        @submit="zsValidateMandatoryFields()" enctype="multipart/form-data"> <input type="hidden"
+          name="xnQsjsdp" value="edbsnedd452fade55818564e449cede7e03fa" />
+        <input type="hidden" name="xmIwtLD"
+          value="edbsn49fa765c0bc9d94d0e3323e82365d1e36ccc292d57ef2e8e74b9fe52799501bf" />
+        <input type="hidden" name="xJdfEaS" value="" /> <input type="hidden" name="actionType" value="Q2FzZXM=" />
         <input type="hidden" id="property(module)" value="Cases" /> <input type="hidden"
           id="dependent_field_values_Cases"
-          value="&#x7b;&quot;JSON_VALUES&quot;&#x3a;&#x7b;&#x7d;,&quot;JSON_SELECT_VALUES&quot;&#x3a;&#x7b;&#x7d;,&quot;JSON_MAP_DEP_LABELS&quot;&#x3a;&#x5b;&#x5d;&#x7d;" />
-        <input type='hidden' name='returnURL' value='https&#x3a;&#x2f;&#x2f;ibloovadmin.netlify.app&#x2f;' />
-        <table border='0' cellspacing='0' class='zsFormClass'>
+          
+           />
+        <input type="hidden" name="returnURL" value="https://ibloovadmin.netlify.app/" />
+        <table border="0" cellspacing="0" class="zsFormClass">
+          <thead>
+            <td colspan="2" class="zsFontClass"><strong>Web Form</strong></td>
+          </thead><br>
+          <tbody>
           <tr>
-            <td colspan='2' class='zsFontClass'><strong>Web Form</strong></td>
-          </tr><br>
-          <tr>
-            <td nowrap class='zsFontClass ' width='25%' align='left'>First Name&nbsp;&nbsp;</td>
-            <td align='left' width='75%'><input type='text' maxlength='120' name='First Name' value='' /></td>
+            <td nowrap class="zsFontClass " width="25%" align="left">First Name  </td>
+            <td align="left" width="75%"><input type="text" maxlength="120" name="First Name" value="" /></td>
           </tr>
           <tr>
-            <td nowrap class='zsFontClass ' width='25%' align='left'>Last Name&nbsp;&nbsp;</td>
-            <td align='left' width='75%'><input type='text' maxlength='120' name='Contact Name' class='manfieldbdr' />
+            <td nowrap class="zsFontClass " width="25%" align="left">Last Name  </td>
+            <td align="left" width="75%"><input type="text" maxlength="120" name="Contact Name" class="manfieldbdr" />
             </td>
           </tr>
           <tr>
-            <td nowrap class='zsFontClass ' width='25%' align='left'>Email&nbsp;&nbsp;</td>
-            <td align='left' width='75%'><input type='text' maxlength='120' name='Email' value='' class='manfieldbdr' />
+            <td nowrap class="zsFontClass " width="25%" align="left">Email  </td>
+            <td align="left" width="75%"><input type="text" maxlength="120" name="Email" value="" class="manfieldbdr" />
             </td>
           </tr>
           <tr>
-            <td nowrap class='zsFontClass ' width='25%' align='left'>Subject&nbsp;&nbsp;</td>
-            <td align='left' width='75%'><input type='text' maxlength='255' name='Subject' value=''
-                class='manfieldbdr' />
+            <td nowrap class="zsFontClass " width="25%" align="left">Subject  </td>
+            <td align="left" width="75%"><input type="text" maxlength="255" name="Subject" value=""
+                class="manfieldbdr" />
             </td>
           </tr>
           <tr>
-            <td nowrap class='zsFontClass ' width='25%' align='left'>Phone&nbsp;&nbsp;</td>
-            <td align='left' width='75%'><input type='text' maxlength='120' name='Phone' value='' /></td>
+            <td nowrap class="zsFontClass " width="25%" align="left">Phone  </td>
+            <td align="left" width="75%"><input type="text" maxlength="120" name="Phone" value="" /></td>
           </tr>
           <tr>
-            <td nowrap class='zsFontClass ' width='25%' align='left'>Description &nbsp;&nbsp;</td>
-            <td align='left' width='75%'> <textarea name='Description' maxlength='3000' width='250'
-                height='250'></textarea>
+            <td nowrap class="zsFontClass " width="25%" align="left">Description   </td>
+            <td align="left" width="75%"> <textarea name="Description" maxlength="3000" width="250"
+                height="250"></textarea>
             </td>
           </tr>
           <tr>
-            <td style='padding: 11px 5px 0px 5px;' colspan='2' align='center' width='25%'> <input type='submit'
-                id="zsSubmitButton_757212000000220001" class='zsFontClass' value='Submit'> &nbsp; &nbsp; <input
-                type='button' class='zsFontClass' value='Reset' onclick="zsResetWebForm('757212000000220001')"> </td>
+            <td style="padding: 11px 5px 0px 5px; margin-right:10px" colspan="2" align="center" width="25%"> <input type="submit"
+                id="zsSubmitButton_757212000000220001" ref="zsSubmitButton_757212000000220001" class="zsFontClass"
+                value="Submit"> &nbsp; &nbsp; <input type="button" class="zsFontClass" value="Reset"
+                @click="zsResetWebForm('757212000000220001')"> </td>
           </tr>
           <tr>
-            <td width='25%' align='left'></td>
-            <td style='padding: 0px 5px;' align='left' width='75%'>
-              <div class='wb_FtCon wb_common'><span>powered by </span><a target='_blank' rel='noopener noreferrer'
-                  href='https://zoho.com/desk' class='wb_logoCon'><img class='wb_logo'
-                    src='https://d1ydxa2xvtn0b5.cloudfront.net/app/images/portalLogo.de847024ebc0131731a3.png' /></a>
+            <td width="25%" align="left"></td>
+            <td style="padding: 0px 5px;" align="left" width="75%">
+              <div class="wb_FtCon wb_common"><span>powered by </span><a target="_blank" rel="noopener noreferrer"
+                  href="https://zoho.com/desk" class="wb_logoCon"><img class="wb_logo"
+                    src="https://d1ydxa2xvtn0b5.cloudfront.net/app/images/portalLogo.de847024ebc0131731a3.png" /></a>
               </div>
             </td>
           </tr>
+          </tbody>
         </table>
       </form>
     </div>
@@ -68,6 +72,106 @@
 
 <script>
 export default {
+  data() {
+    return {
+      newElement: 'test'
+    }
+  },
+  // render(createElement) {
+  //   let newHeading = createElement("h1", {}, "Hello World")
+  //   console.log(newHeading)
+  //   // this.newElement = newHeading
+  //   return newHeading
+  // },
+  // mounted() {
+  //   console.log(this.newElement)
+  // },
+  // methods: {
+  //   trimBoth(str) {
+  //     return jQuery.trim(str);
+  //   },
+  //   setAllDependancyFieldsMapping() {
+  //     var mapDependancyLabels = this.getMapDependenySelectValues(jQuery("[id='property(module)']").val(), "JSON_MAP_DEP_LABELS");
+  //     if (mapDependancyLabels) {
+  //       for (var i = 0; i < mapDependancyLabels.length; i++) {
+  //         var label = mapDependancyLabels[i]
+  //         var obj = this.$refs.zsWebToCase_757212000000220001[label]
+  //         if (obj) {
+  //           this.setDependent(obj, true);
+  //         }
+  //       }
+  //     }
+  //   },
+  //   getMapDependenySelectValues(module, key) {
+  //     var dependencyObj = jQuery.parseJSON(jQuery("[id='dependent_field_values_" + module + "']").val())
+  //     if (dependencyObj == undefined) { return dependencyObj; }
+  //     return dependencyObj[key];
+  //   },
+  //   setDependent(obj, isload) {
+  //     var name = obj.id || (obj[0] && obj[0].id) || ""
+  //     var module = jQuery("[id='property(module)']").val()
+  //     var val = ""
+  //     var myObject = this.getMapDependenySelectValues(module, "JSON_VALUES")
+  //     if (myObject != undefined) { val = myObject[name] }
+  //     var mySelObject = this.getMapDependenySelectValues(module, "JSON_SELECT_VALUES")
+  //     if (val != null && val != "" && val != "null" && mySelObject) {
+  //       var fields = val
+  //       for (var i in fields) {
+  //         if (fields.hasOwnProperty(i)) {
+  //           var isDependent = false
+  //           var label = i
+  //           var values = fields[i]
+  //           if (label.indexOf(")") > -1) {
+  //             label = label.replace(/\)/g, '_____')
+  //           }
+  //           if (label.indexOf("(") > -1) {
+  //             label = label.replace(/\(/g, '____')
+  //           }
+  //           if (label.indexOf(".") > -1) {
+  //             label = label.replace(/\./g, '___')
+  //           }
+  //           var depObj = this.$refs.zsWebToCase_757212000000220001[label];
+  //           if (depObj && depObj.options) {
+  //             var mapValues = ""
+  //             var selected_val = depObj.value
+  //             var depLen = depObj.options.length - 1
+  //             for (var n = depLen; n >= 0; n--) {
+  //               if (depObj.options[n].selected) {
+  //                 if (mapValues == "") {
+  //                   mapValues = depObj.options[n].value
+  //                 } else {
+  //                   mapValues = mapValues + ";;;" + depObj.options[n].value
+  //                 }
+  //               }
+  //               depObj.value = ""
+  //               var selectValues = mySelObject[label]
+  //               for (var k in values) {
+  //                 var rat = k
+  //                 if (rat == "-None-") { rat = "" }
+  //                 var parentValues = mySelObject[name]
+  //                 if (rat == trimBoth(obj.value)) {
+  //                   isDependent = true
+  //                   depObj.length = 0
+  //                   var depvalues = values[k]
+  //                   var depLen = depvalues.length - 1
+  //                   for (var j = 0; j <= depLen; j++) {
+  //                     var optionElement = document.createElement("OPTION")
+  //                     var displayValue = depvalues[j]
+  //                     var actualValue = displayValue
+  //                     if (actualValue == "-None-") {
+
+  //                     }
+  //                   }
+  //                 }
+  //               }
+  //             }
+
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
 }
 </script>
@@ -249,4 +353,6 @@ input[type=file]::-webkit-file-upload-button {
 .zsMaxSizeMessage {
   font-size: 13px;
 }
+ /* Id=property(module)
+          :value="{"JSON_VALUES":{},"JSON_SELECT_VALUES":{},"JSON_MAP_DEP_LABELS":[]}" */
 </style>
