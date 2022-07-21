@@ -90,7 +90,8 @@
                   </span>
                 </div>
               </div>
-              <NuxtLink to="dashboardPanel/index.html">ZohoLink</NuxtLink>
+              <!-- ZohoLink -->
+              <ZohoLink />
               <!-- Card Filter -->
               <CardFilter @check-filter="updateDataByFilter" />
             </div>
