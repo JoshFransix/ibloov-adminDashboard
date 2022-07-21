@@ -1,20 +1,6 @@
 <template>
   <div>
-    <!-- <div class="sm:mt-4" transition="scale-transition">
-      <label for="filter" class="text-[#999]">Filter By:</label>
-      <select name="filter" id="filter" class="
-                    px-2
-                    py-2
-                    cursor-pointer
-                    text-[#00237B]
-                    outline-none
-                    border-2 border-[#ccc]
-                  ">
-        <option value="">Date</option>
-        <option value="">Time</option>
-        <option value="">Event</option>
-      </select>
-    </div> -->
+
     <div class="sm:mt-4">
       <v-menu transition="slide-y-reverse-transition">
         <template v-slot:activator="{ on, attrs }">
@@ -24,9 +10,35 @@
         </template>
         <v-list class="w-[200px]">
 
-          <a class="flex pl-4 py-3 hover:bg-[#f4f4f4]  h-full" @click="checkFilters($event)"> {{ items[0] }}</a>
-          <a class="flex pl-4 py-3 hover:bg-[#f4f4f4]  h-full" @click="checkFilters($event)"> {{ items[1] }}</a>
-          <a class="flex pl-4 py-3 hover:bg-[#f4f4f4]  h-full" @click="checkFilters($event)"> {{ items[2] }}</a>
+          <div class="flex items-center">
+            <input @click="checkFilters($event)" type="checkbox" id="checkbox1" name="checkbox1"
+              class="absolute opacity-0" :value="items[0]" checked>
+            <label for="checkbox1" class="cursor-pointer flex pl-4 py-3 hover:bg-[#f4f4f4]">{{ items[0] }}</label>
+          </div>
+
+          <div class="flex items-center">
+            <input @click="checkFilters($event)" type="checkbox" id="checkbox2" name="checkbox2"
+              class="absolute opacity-0" :value="items[1]" checked>
+            <label for="checkbox2" class="cursor-pointer flex pl-4 py-3 hover:bg-[#f4f4f4]">{{ items[1] }}</label>
+          </div>
+
+          <div class="flex items-center">
+            <input @click="checkFilters($event)" type="checkbox" id="checkbox3" name="checkbox3"
+              class="absolute opacity-0" :value="items[2]" checked>
+            <label for="checkbox3" class="cursor-pointer flex pl-4 py-3 hover:bg-[#f4f4f4]">{{ items[2] }}</label>
+          </div>
+
+
+          <!-- <div class="flex items-center">
+            <button @click="checkFilters($event)" class="cursor-pointer flex pl-4 py-3 hover:bg-[#f4f4f4]">{{ items[1]
+            }}</button>
+          </div>
+
+          <div class="flex items-center">
+            <button @click="checkFilters($event)" class="cursor-pointer flex pl-4 py-3 hover:bg-[#f4f4f4]">{{ items[2]
+            }}</button>
+          </div> -->
+
 
         </v-list>
       </v-menu>
@@ -36,26 +48,44 @@
 
 <script>
 export default {
+  emits: ['check-filter'],
   data() {
     return {
-      items: ["Date", "Time", "Event"],
-      filterOptions: 'Date'
+      items: ["All", "Date", "Time", "Event"],
+      filterOptions: 'All',
+      checkedFilterValues: ['Date', 'Time', 'Event']
     }
   },
   methods: {
     checkFilters(event) {
-      const current = event.target.text
-      this.filterOptions = current
-      console.log(current)
+      this.filterOptions = event.target.value
+      if (event.target.value === 'All') {
+        this.checkedFilterValues = ['Date', 'Time', 'Event']
+        // console.log(this.checkedFilterValues)
+      } else {
+        this.checkedFilterValues = event.target.value
+        // console.log(this.checkedFilterValues)
+      }
+
+      this.$emit('check-filter', this.checkedFilterValues)
     }
-  }
+  },
+
 }
 </script>
 
 <style scoped>
-a {
+v-list label {
   color: #444;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 }
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 </style>
+
+

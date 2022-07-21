@@ -91,7 +91,7 @@
                 </div>
               </div>
               <!-- Card Filter -->
-              <CardFilter />
+              <CardFilter @check-filter="updateDataByFilter" />
             </div>
 
             <!-- Review Body -->
@@ -107,8 +107,8 @@
                     xl:grid-cols-1
                     lg:gap-x-0
                   ">
-                  <LazyFeedbackCardDisplay v-for="cardinfo in feedbackData" :key="cardinfo.id" :cardsSection="cardinfo"
-                    :class="{ selected: feedbackData.active }" />
+                  <LazyFeedbackCardDisplay v-for="cardinfo in feedbackData" :key="cardinfo.id"
+                    :cardsSection="cardinfo" />
                 </div>
               </div>
             </div>
@@ -128,6 +128,7 @@ export default {
       feedbackData,
       totalRatingValue: 0,
       newRating: [],
+      filteredOptions: ['Date', 'Time', 'Event']
 
     };
   },
@@ -149,7 +150,11 @@ export default {
       this.totalRatingValue = finalTotal;
       return finalTotal.toFixed(1);
     },
+    updateDataByFilter(updatedOptions) {
+      this.filteredOptions = updatedOptions;
+      console.log(updatedOptions)
 
+    }
 
   },
 };

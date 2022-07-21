@@ -17,6 +17,9 @@ export default {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">'
       }
+    ],
+    script: [
+      { hid: 'vuex', src: 'https://unpkg.com/vuex@3.6.2', defer: true }
     ]
   },
 
@@ -55,7 +58,7 @@ export default {
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
-//   Static rendering for netlify
+  //   Static rendering for netlify
   target: 'static',
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
