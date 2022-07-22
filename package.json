@@ -8,7 +8,6 @@
     "generate": "nuxt generate",
     "start": "nuxt start",
     "test": "jest",
-    "heroku-prebuild": "nuxt generate",
     "heroku-postbuild": "npm run build"
   },
   "engines": {
