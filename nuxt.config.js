@@ -36,7 +36,7 @@ export default {
         copySync(join(generator.nuxt.options.generate.dir, '200.html'), join(publicDir, 'index.html'))
         removeSync(generator.nuxt.options.generate.dir) //Delete 'Dist' folder from Laravel root
       }
-      console.log("After generate dist folder");
+      // console.log("After generate dist folder");
     }
   },
 
