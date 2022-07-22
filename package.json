@@ -11,7 +11,7 @@
     "heroku-postbuild": "npm run build"
   },
   "engines": {
-    "node": "18.x"
+    "node": "16.13.0"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
