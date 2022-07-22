@@ -177,7 +177,6 @@ export default {
 </script>
 
 <style scoped>
-/* Styling 1 */
 #zohoSupportWebToCase textarea,
 #zohoSupportWebToCase input[type='text'],
 #zohoSupportWebToCase select,
