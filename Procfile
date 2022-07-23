@@ -1,1 +1,1 @@
-web:-Dserver.port=$PORT npm run start
+web:npm run start
