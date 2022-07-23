@@ -27,6 +27,11 @@
               class="absolute opacity-0" :value="items[2]" checked>
             <label for="checkbox3" class="cursor-pointer flex pl-4 py-3 hover:bg-[#f4f4f4]">{{ items[2] }}</label>
           </div>
+          <div class="flex items-center">
+            <input @click="checkFilters($event)" type="checkbox" id="checkbox3" name="checkbox3"
+              class="absolute opacity-0" :value="items[3]" checked>
+            <label for="checkbox3" class="cursor-pointer flex pl-4 py-3 hover:bg-[#f4f4f4]">{{ items[2] }}</label>
+          </div>
 
 
           <!-- <div class="flex items-center">
