@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "npm run build",
-    "start": "nuxt start",
+    "build": "nuxt build",
+    "start": "npm run start",
     "generate": "nuxt generate",
     "test": "jest",
     "heroku-postbuild": "npm run build"
