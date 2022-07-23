@@ -17,14 +17,7 @@
         </div>
         <!-- <div class="bottomContent mt-20 ml-4 toggle">
             
-            <NuxtLink to="/dashboardPanel/Dashboard">
-              <div class="dashboard flex items-center mb-12 active">
-                <span class="mr-4"
-                  ><img src="@/assets/img/dashboard.svg" alt="" class="w-6 h-6"
-                /></span>
-                <span>Dashboard</span>
-              </div>
-            </NuxtLink>
+          
 
            
             <NuxtLink to="/dashboardPanel/Feedback">
