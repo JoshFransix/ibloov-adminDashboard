@@ -54,7 +54,7 @@ export const feedbackData = [
   {
     id: 8,
     name: "Joshua Fransix",
-    image: "woman2.jpg",
+    image: "landingImage.png",
     email: "test256@gmail.com",
     phoneNumber: "09012276905",
     date: "25/05/2022",
@@ -64,7 +64,7 @@ export const feedbackData = [
   {
     id: 9,
     name: "David Beckham",
-    image: "man1.jpg",
+    image: "landingImage.png",
     email: "good@ymail.com",
     phoneNumber: "08011123411",
     date: "12/03/2019",
@@ -74,7 +74,7 @@ export const feedbackData = [
   {
     id: 10,
     name: "Michael Bosco",
-    image: "man2.jpg",
+    image: "landingImage.png",
     email: "mikey@outlook.com",
     phoneNumber: "07134676432",
     date: "15/08/2002",
@@ -84,7 +84,7 @@ export const feedbackData = [
   {
     id: 11,
     name: "Nina Dobrev",
-    image: "woman1.jpg",
+    image: "landingImage.png",
     email: "nina26@ggg.com",
     phoneNumber: "09122734863",
     date: "01/10/2014",
@@ -94,7 +94,7 @@ export const feedbackData = [
   {
     id: 12,
     name: "Nina Dobrev",
-    image: "woman1.jpg",
+    image: "landingImage.png",
     email: "nina26@ggg.com",
     phoneNumber: "09122734863",
     date: "01/10/2014",
@@ -104,7 +104,7 @@ export const feedbackData = [
   {
     id: 13,
     name: "Nina Dobrev",
-    image: "woman1.jpg",
+    image: "landingImage.png",
     email: "nina26@ggg.com",
     phoneNumber: "09122734863",
     date: "01/10/2014",
@@ -114,7 +114,7 @@ export const feedbackData = [
   {
     id: 14,
     name: "Nina Dobrev",
-    image: "woman1.jpg",
+    image: "landingImage.png",
     email: "nina26@ggg.com",
     phoneNumber: "09122734863",
     date: "01/10/2014",
@@ -124,7 +124,7 @@ export const feedbackData = [
   {
     id: 15,
     name: "Nina Dobrev",
-    image: "woman1.jpg",
+    image: "landingImage.png",
     email: "nina26@ggg.com",
     phoneNumber: "09122734863",
     date: "01/10/2014",

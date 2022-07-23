@@ -20,7 +20,7 @@
           "
         >
           <v-avatar size="40">
-            <img src="@/assets/img/woman2.jpg" alt="" class="rounded-circle"
+            <img src="@/assets/img/landingImage.png" alt="" class="rounded-circle"
           /></v-avatar>
 
           <v-card-text>
