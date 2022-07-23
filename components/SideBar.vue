@@ -17,7 +17,6 @@
         </div>
         <!-- <div class="bottomContent mt-20 ml-4 toggle">
             
-    "heroku-postbuild": "npm run build"
           
 
            
