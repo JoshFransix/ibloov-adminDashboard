@@ -1,6 +1,6 @@
 <template v-cloak>
   <v-app>
-    <LazySideBar />
+    <SideBar />
     <v-main class="feedbackContainer bg-slate-200">
       <div
         class="
@@ -47,10 +47,10 @@
                 <img src="@/assets/img/ibloov.svg" alt="" />
               </div>
               <div class="md:hidden">
-                <LazyUserBox />
+                <UserBox />
               </div>
               <div class="hidden md:block">
-                <LazySideBarMobile />
+                <SideBarMobile />
               </div>
             </div>
             <div class="mobileHeader">
@@ -72,7 +72,7 @@
                 sm:grid-cols-1 sm:gap-y-5 sm:px-0 sm:pr-0 sm:pb-10 sm:mt-12
               "
             >
-              <LazySmallCardDisplay
+              <SmallCardDisplay
                 v-for="cardInfo in dashboardData"
                 :key="cardInfo.id"
                 :cardsSection="cardInfo"

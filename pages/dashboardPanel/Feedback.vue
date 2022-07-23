@@ -1,6 +1,6 @@
 <template v-cloak>
   <v-app>
-    <LazySideBar />
+    <SideBar />
     <v-main class="feedbackContainer bg-slate-200">
       <div class="
           dashboardContainer
@@ -39,10 +39,10 @@
                 <img src="@/assets/img/ibloov.svg" alt="" />
               </div>
               <div class="md:hidden">
-                <LazyUserBox />
+                <UserBox />
               </div>
               <div class="hidden md:block">
-                <LazySideBarMobile />
+                <SideBarMobile />
               </div>
             </div>
 
@@ -90,8 +90,7 @@
                   </span>
                 </div>
               </div>
-              <!-- ZohoLink -->
-              <ZohoLink />
+            
               <!-- Card Filter -->
               <CardFilter @check-filter="updateDataByFilter" />
             </div>
@@ -109,7 +108,7 @@
                     xl:grid-cols-1
                     lg:gap-x-0
                   ">
-                  <LazyFeedbackCardDisplay v-for="cardinfo in feedbackData" :key="cardinfo.id"
+                  <FeedbackCardDisplay v-for="cardinfo in feedbackData" :key="cardinfo.id"
                     :cardsSection="cardinfo" />
                 </div>
               </div>
