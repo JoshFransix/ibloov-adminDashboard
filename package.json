@@ -7,8 +7,7 @@
     "build": "nuxt build",
     "start": "npm run start",
     "generate": "npm run generate",
-    "test": "jest",
-    "heroku-postbuild": "npm run build"
+    "test": "jest"
   },
   "engines": {
     "node": "16.13.0"
