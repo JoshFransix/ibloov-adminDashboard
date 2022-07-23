@@ -4,14 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt build",
+    "build": "npm run build",
     "start": "nuxt start",
     "generate": "nuxt generate",
     "test": "jest",
     "heroku-postbuild": "npm run build"
   },
   "engines": {
-    "node": "16.13.0"
+    "node": "16.13.0",
+    "npm": "8.x"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
