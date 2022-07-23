@@ -6,7 +6,7 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "npm run generate",
+    "generate": "nuxt generate",
     "test": "jest",
     "heroku-postbuild": "npm run build"
   },
