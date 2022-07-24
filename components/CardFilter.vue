@@ -30,7 +30,7 @@
           <div class="flex items-center">
             <input @click="checkFilters($event)" type="checkbox" id="checkbox4" name="checkbox4"
               class="absolute opacity-0" :value="items[3]" checked>
-            <label for="checkbox3" class="cursor-pointer flex pl-4 py-3 hover:bg-[#f4f4f4]">{{ items[3] }}</label>
+            <label for="checkbox4" class="cursor-pointer flex pl-4 py-3 hover:bg-[#f4f4f4]">{{ items[3] }}</label>
           </div>
 
 
