@@ -77,7 +77,7 @@
           </div>
 
           <!-- <div class="flex items-center">
-            <button @click="checkFilters($event)" class="cursor-pointer flex pl-4 py-3 hover:bg-[#f4f4f4]">{{ items[1]
+            <button @click="checkFilter($event)" class="cursor-pointer flex pl-4 py-3 hover:bg-[#f4f4f4]">{{ items[1]
             }}</button>
           </div>
 
