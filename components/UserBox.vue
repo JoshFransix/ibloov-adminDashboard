@@ -20,11 +20,14 @@
           "
         >
           <v-avatar size="40">
-            <img src="@/assets/img/landingImage.png" alt="" class="rounded-circle"
+            <img
+              src="@/assets/img/landingImage.png"
+              alt=""
+              class="rounded-circle"
           /></v-avatar>
 
           <v-card-text>
-            <span class="primary--text">Joshua</span>
+            <span class="primary--text">Admin</span>
           </v-card-text>
         </v-card>
       </template>
