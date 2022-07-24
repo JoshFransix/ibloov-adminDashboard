@@ -9,7 +9,7 @@
           </label>
         </template>
         <v-list class="w-[200px]">
-          <div class="flex items-center">
+          <div class="items-center">
             <input
               @click="checkFilters($event)"
               type="checkbox"
@@ -26,7 +26,7 @@
             >
           </div>
 
-          <div class="flex items-center">
+          <div class="items-center">
             <input
               @click="checkFilters($event)"
               type="checkbox"
@@ -43,7 +43,7 @@
             >
           </div>
 
-          <div class="flex items-center">
+          <div class="items-center">
             <input
               @click="checkFilters($event)"
               type="checkbox"
@@ -59,7 +59,7 @@
               >{{ items[2] }}</label
             >
           </div>
-          <div class="flex items-center">
+          <div class="items-center">
             <input
               @click="checkFilters($event)"
               type="checkbox"
@@ -129,6 +129,10 @@ ul {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.flex {
+  display: flex;
 }
 </style>
 
