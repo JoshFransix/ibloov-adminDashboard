@@ -59,7 +59,8 @@ export const feedbackData = [
     phoneNumber: "09012276905",
     date: "25/05/2022",
     message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
-    star: 3
+    star: 3,
+    time: "yesterday"
   },
   {
     id: 9,
@@ -69,7 +70,8 @@ export const feedbackData = [
     phoneNumber: "08011123411",
     date: "12/03/2019",
     message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
-    star: 3
+    star: 3,
+    time: "tomorrow"
   },
   {
     id: 10,
@@ -79,7 +81,8 @@ export const feedbackData = [
     phoneNumber: "07134676432",
     date: "15/08/2002",
     message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
-    star: 1
+    star: 1,
+    time: "yesterday"
   },
   {
     id: 11,
@@ -89,7 +92,8 @@ export const feedbackData = [
     phoneNumber: "09122734863",
     date: "01/10/2014",
     message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
-    star: 3
+    star: 3,
+    time: "today"
   },
   {
     id: 12,
@@ -99,7 +103,8 @@ export const feedbackData = [
     phoneNumber: "09122734863",
     date: "01/10/2014",
     message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
-    star: 5
+    star: 5,
+    time: "tomorrow"
   },
   {
     id: 13,
@@ -109,7 +114,8 @@ export const feedbackData = [
     phoneNumber: "09122734863",
     date: "01/10/2014",
     message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
-    star: 2
+    star: 2,
+    time: "today"
   },
   {
     id: 14,
@@ -119,7 +125,8 @@ export const feedbackData = [
     phoneNumber: "09122734863",
     date: "01/10/2014",
     message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
-    star: 5
+    star: 5,
+    time: "today"
   },
   {
     id: 15,
@@ -129,7 +136,8 @@ export const feedbackData = [
     phoneNumber: "09122734863",
     date: "01/10/2014",
     message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
-    star: 5
+    star: 5,
+    time: "tomorrow"
   }
 ]
 

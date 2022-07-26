@@ -1,7 +1,8 @@
 <template>
   <v-card class="relative card bg-white rounded-lg pr-4" elevation="0">
     <v-card-text class="">
-      <div class="
+      <div
+        class="
           cardHeader
           d-flex
           justify-space-between
@@ -9,12 +10,16 @@
           w-full
           cardMargin
           md:flex-col
-        ">
-        <div class="topLeft d-flex justify-space-between align-center md:flex-col">
+        "
+      >
+        <div
+          class="topLeft d-flex justify-space-between align-center md:flex-col"
+        >
           <v-avatar size="75" class="absolute -mt-8 mr-3 md:-mt-12">
             <img :src="require(`@/assets/img/${cardsSection.image}`)" alt="" />
           </v-avatar>
-          <div class="
+          <div
+            class="
               relative
               left-24
               topLeftText
@@ -23,20 +28,24 @@
               justify-space-center
               align-center
               md:left-0 md:mt-0 md:w-1/2
-            ">
+            "
+          >
             <h1 class="text-xl font-medium text-[#263238] md:text-xl calcWidth">
               {{ cardsSection.name }}
             </h1>
             <div class="numberEmail flex justify-between items-center w-full">
               <span class="number text-small">{{
-                  cardsSection.phoneNumber
+                cardsSection.phoneNumber
               }}</span>
               <span class="email text-small">{{ cardsSection.email }}</span>
             </div>
           </div>
         </div>
         <div class="topRight mt-7">
-          <span class="date text-small md:absolute md:top-[10px] md:right-[10px]">{{ cardsSection.date }}</span>
+          <span
+            class="date text-small md:absolute md:top-[10px] md:right-[10px]"
+            >{{ cardsSection.date }}</span
+          >
         </div>
       </div>
       <div class="cardText mb-0">
@@ -48,19 +57,36 @@
 
     <v-card-actions class="mt-0 pt-0">
       <div class="cardFooter mt-0 flex justify-between items-center w-full">
-        <button @click="reveal = true" class="text-xs text-[#00237b] font-bold ml-2">
+        <button
+          @click="reveal = true"
+          class="text-xs text-[#00237b] font-bold ml-2"
+        >
           Read More
         </button>
         <div class="">
-          <v-rating class="inline-block transition duration-200" v-model="cardsSection.star" color="starfilled"
-            background-color="starempty" empty-icon="$ratingFull" dense hover length="5" size="15"></v-rating>
+          <v-rating
+            class="inline-block transition duration-200"
+            v-model="cardsSection.star"
+            color="starfilled"
+            background-color="starempty"
+            empty-icon="$ratingFull"
+            dense
+            readonly
+            length="5"
+            size="15"
+          ></v-rating>
           <span class="text-yellow-400 text-xs">
-            {{ cardsSection.star.toFixed(1) }}</span>
+            {{ cardsSection.star.toFixed(1) }}</span
+          >
         </div>
       </div>
     </v-card-actions>
     <v-expand-transition>
-      <v-card v-if="reveal" class="transition-fast-in-fast-out v-card--reveal" style="height: 100%">
+      <v-card
+        v-if="reveal"
+        class="transition-fast-in-fast-out v-card--reveal"
+        style="height: 100%"
+      >
         <v-card-text class="pb-0">
           <p class="text-lg text--primary">Origin</p>
           <p>
@@ -111,7 +137,6 @@ export default {
       // return value;
     },
   },
-
 };
 </script>
 

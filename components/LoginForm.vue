@@ -97,6 +97,7 @@
                 :disabled="!valid"
                 type="submit"
                 color="white"
+                depressed
                 class="
                   button
                   w-full
@@ -165,6 +166,9 @@ export default {
 
 
 <style scoped>
+v-btn {
+  font-family: "Poppins", sans-serif;
+}
 .loginForm {
   position: absolute;
   top: 0;

@@ -11,7 +11,7 @@
         <v-list class="w-[200px]">
           <div class="items-center">
             <input
-              @click="checkFilters($event)"
+              @change="checkFilters($event)"
               type="checkbox"
               id="checkbox1"
               name="checkbox1"
@@ -28,7 +28,7 @@
 
           <div class="items-center">
             <input
-              @click="checkFilters($event)"
+              @change="checkFilters($event)"
               type="checkbox"
               id="checkbox2"
               name="checkbox2"
@@ -45,7 +45,7 @@
 
           <div class="items-center">
             <input
-              @click="checkFilters($event)"
+              @change="checkFilters($event)"
               type="checkbox"
               id="checkbox3"
               name="checkbox3"
@@ -61,7 +61,7 @@
           </div>
           <div class="items-center">
             <input
-              @click="checkFilters($event)"
+              @change="checkFilters($event)"
               type="checkbox"
               id="checkbox4"
               name="checkbox4"
@@ -75,6 +75,22 @@
               >{{ items[3] }}</label
             >
           </div>
+          <!-- <div class="items-center">
+            <input
+              @change="checkFilters($event)"
+              type="checkbox"
+              id="checkbox5"
+              name="checkbox5"
+              class="absolute opacity-0"
+              :value="items[4]"
+              checked
+            />
+            <label
+              for="checkbox5"
+              class="cursor-pointer flex pl-4 py-3 hover:bg-[#f4f4f4]"
+              >{{ items[4] }}</label
+            >
+          </div> -->
 
           <!-- <div class="flex items-center">
             <button @click="checkFilter($event)" class="cursor-pointer flex pl-4 py-3 hover:bg-[#f4f4f4]">{{ items[1]
@@ -96,18 +112,19 @@ export default {
   emits: ["check-filter"],
   data() {
     return {
-      items: ["All", "Date", "Time", "Event"],
+      items: ["All", "Yesterday", "Today", "Tomorrow"],
       filterOptions: "All",
-      checkedFilterValues: ["Date", "Time", "Event"],
+      checkedFilterValues: "",
     };
   },
   methods: {
     checkFilters(event) {
       this.filterOptions = event.target.value;
       if (event.target.value === "All") {
-        this.checkedFilterValues = ["Date", "Time", "Event"];
+        this.checkedFilterValues = "All";
         // console.log(this.checkedFilterValues)
       } else {
+        this.checkedFilterValues = [];
         this.checkedFilterValues = event.target.value;
         // console.log(this.checkedFilterValues)
       }

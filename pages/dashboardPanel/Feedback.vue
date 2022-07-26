@@ -2,16 +2,19 @@
   <v-app>
     <SideBar />
     <v-main class="feedbackContainer bg-slate-200">
-      <div class="
+      <div
+        class="
           dashboardContainer
           relative
           d-flex
           pl-[20rem]
           lg:pl-[19rem]
           md:pl-0
-        ">
+        "
+      >
         <div class="mobilePadding dashboardContent md:bg-slate-200">
-          <div class="
+          <div
+            class="
               w-full
               rounded-sm
               bg-slate-200
@@ -19,20 +22,25 @@
               flex-col
               lgPadding
               md:py-2 md:justify-start
-            ">
-            <div class="
+            "
+          >
+            <div
+              class="
                 topContent
                 w-full
                 d-flex
                 align-center
                 justify-space-between
                 font-bold
-              ">
-              <h1 class="
+              "
+            >
+              <h1
+                class="
                   text-3xl text-black
                   lg:text-2xl
                   md:text-xl md:mt-2 md:hidden
-                ">
+                "
+              >
                 Manage Feedback
               </h1>
               <div class="hidden md:block w-1/5 h-1/5">
@@ -52,7 +60,8 @@
               </h1>
             </div>
 
-            <div class="
+            <div
+              class="
                 totalRating
                 ratingPadding
                 flex
@@ -61,9 +70,11 @@
                 w-full
                 md:mt-6
                 sm:block
-              ">
+              "
+            >
               <div class="ratingReview d-flex align-center">
-                <h1 class="
+                <h1
+                  class="
                     text-6xl text-[#00237B]
                     w-32
                     font-black
@@ -72,33 +83,45 @@
                     md:text-4xl
                     lg:w-20 lg:mr-5
                     md:mr-5 md:w-max
-                  ">
+                  "
+                >
                   {{ totalRating() }}
                 </h1>
                 <div class="star">
                   <h2 class="">
-                    <v-rating v-model="totalRatingValue" color="starfilled" background-color="starempty"
-                      empty-icon="$ratingFull" half-increments dense readonly length="5" size="23"></v-rating>
+                    <v-rating
+                      v-model="totalRatingValue"
+                      color="starfilled"
+                      background-color="starempty"
+                      empty-icon="$ratingFull"
+                      half-increments
+                      dense
+                      readonly
+                      length="5"
+                      size="23"
+                    ></v-rating>
                   </h2>
-                  <span class="
+                  <span
+                    class="
                       number
                       w-max
                       text-xl text-[#00237B]
                       md:text-sm
                       font-extrabold
-                    ">{{ totalReviews() }} Reviews
+                    "
+                    >{{ totalReviews() }} Reviews
                   </span>
                 </div>
               </div>
-            
-              <!-- Card Filter -->
-              <CardFilter @check-filter="updateDataByFilter" />
-            </div>
 
+              <!-- Card Filter -->
+              <LazyCardFilter @check-filter="updateDataByFilter" />
+            </div>
             <!-- Review Body -->
             <div class="reviewBody mt-10 w-full">
               <div class="reviewContainer">
-                <div class="
+                <div
+                  class="
                     cardContainer
                     grid grid-cols-2
                     gap-x-8 gap-y-14
@@ -107,9 +130,13 @@
                     h-full
                     xl:grid-cols-1
                     lg:gap-x-0
-                  ">
-                  <FeedbackCardDisplay v-for="cardinfo in feedbackData" :key="cardinfo.id"
-                    :cardsSection="cardinfo" />
+                  "
+                >
+                  <FeedbackCardDisplay
+                    v-for="cardinfo in feedback"
+                    :key="cardinfo.id"
+                    :cardsSection="cardinfo"
+                  />
                 </div>
               </div>
             </div>
@@ -122,25 +149,60 @@
 
 <script>
 import { feedbackData } from "@/assets/data.js";
+// import { mapState, mapActions, mapGetters, mapMutations } from "vuex";
 
 export default {
   data() {
     return {
       feedbackData,
       totalRatingValue: 0,
+      filteredOptions: "",
       newRating: [],
-      filteredOptions: ['Date', 'Time', 'Event']
-
     };
   },
+  computed: {
+    feedback() {
+      const feedData = this.$store.state.feedback.feedbackData2;
+      // console.log(feedData);
 
+      return feedData.filter((feedback) => {
+        const allOptions = ["Yesterday", "Today", "Tomorrow"];
+        if (
+          feedback.time === "yesterday" &&
+          this.filteredOptions == "Yesterday"
+        ) {
+          return true;
+        }
+        if (feedback.time === "today" && this.filteredOptions == "Today") {
+          return true;
+        }
+        if (
+          feedback.time === "tomorrow" &&
+          this.filteredOptions == "Tomorrow"
+        ) {
+          return true;
+        }
+
+        if (feedback.all === "all" && this.filteredOptions == "All") {
+          return true;
+        }
+        return false;
+      });
+    },
+  },
   methods: {
+    updateDataByFilter(updatedOptions) {
+      this.filteredOptions = updatedOptions;
+      console.log(this.filteredOptions);
+      // this.feedbackData = data;
+      // return data;
+    },
     totalReviews() {
-      const count = feedbackData.filter((item) => item.id).length;
+      const count = this.feedback.filter((item) => item.id).length;
       return count;
     },
     totalRating() {
-      var rating = feedbackData;
+      var rating = this.feedback;
       var sum = 0;
       var total = 0;
       for (var i = 0; i < rating.length; i++) {
@@ -151,13 +213,9 @@ export default {
       this.totalRatingValue = finalTotal;
       return finalTotal.toFixed(1);
     },
-    updateDataByFilter(updatedOptions) {
-      this.filteredOptions = updatedOptions;
-      console.log(updatedOptions)
-
-    }
-
   },
+
+  // computed: mapState(["feedbackData2"]),
 };
 </script>
 
@@ -172,7 +230,7 @@ export default {
 
 h1,
 div {
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .feedbackContainer .feedbackContent {

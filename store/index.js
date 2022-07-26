@@ -1,0 +1,1 @@
+// Global file for store directory
