@@ -3,7 +3,6 @@
     <div class="sm:mt-4">
       <v-menu
         v-model="menu"
-        open-on-hover
         transition="slide-y-reverse-transition"
         :close-on-content-click="false"
       >
@@ -47,6 +46,59 @@
               >{{ items[1] }}</label
             >
           </div>
+          <div>
+            <v-dialog v-model="dialog" persistent max-width="600px">
+              <template v-slot:activator="{ on, attrs }">
+                <input
+                  type="checkbox"
+                  id="checkbox2"
+                  name="checkboxStar"
+                  class="absolute opacity-0"
+                  :value="starFilter"
+                  checked
+                />
+                <label
+                  v-on="on"
+                  v-bind="attrs"
+                  for="checkboxStar"
+                  class="cursor-pointer flex pl-4 py-3 hover:bg-[#f4f4f4]"
+                  >Star Rating</label
+                >
+              </template>
+              <v-card>
+                <v-card-title
+                  class="flex flex-row items-center justify-between"
+                >
+                  <span class="text-[#999] text-sm">Filter By</span>
+                  <span class="text-md text-black">Star Rating</span>
+                </v-card-title>
+                <v-card-text>
+                  <v-container>
+                    <div class="flex justify-center items-center">
+                      <div @click="checkStarFilter">
+                        <v-rating
+                          class="inline-block transition duration-200"
+                          color="starfilled"
+                          v-model="starFilter"
+                          background-color="starempty"
+                          empty-icon="$ratingFull"
+                          hover
+                          length="5"
+                          size="35"
+                        ></v-rating>
+                      </div>
+                    </div>
+                  </v-container>
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn color="primary" text @click="dialog = false">
+                    Close
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+          </div>
 
           <div class="items-center">
             <input
@@ -80,32 +132,6 @@
               >{{ items[3] }}</label
             >
           </div>
-          <!-- <div class="items-center">
-            <input
-              @change="checkFilters($event)"
-              type="checkbox"
-              id="checkbox5"
-              name="checkbox5"
-              class="absolute opacity-0"
-              :value="items[4]"
-              checked
-            />
-            <label
-              for="checkbox5"
-              class="cursor-pointer flex pl-4 py-3 hover:bg-[#f4f4f4]"
-              >{{ items[4] }}</label
-            >
-          </div> -->
-
-          <!-- <div class="flex items-center">
-            <button @click="checkFilter($event)" class="cursor-pointer flex pl-4 py-3 hover:bg-[#f4f4f4]">{{ items[1]
-            }}</button>
-          </div>
-
-          <div class="flex items-center">
-            <button @click="checkFilters($event)" class="cursor-pointer flex pl-4 py-3 hover:bg-[#f4f4f4]">{{ items[2]
-            }}</button>
-          </div> -->
         </v-list>
       </v-menu>
     </div>
@@ -119,7 +145,9 @@ export default {
     return {
       items: ["All", "Yesterday", "Today", "Tomorrow"],
       filterOptions: "All",
+      starFilter: 5,
       checkedFilterValues: "All",
+      dialog: false,
       menu: false,
       closeOnClick: true,
     };
@@ -137,6 +165,11 @@ export default {
       }
 
       this.$emit("check-filter", this.checkedFilterValues);
+    },
+    checkStarFilter() {
+      this.checkedFilterValues = this.starFilter;
+      this.$emit("check-filter", this.checkedFilterValues);
+      this.dialog = false;
     },
   },
 };

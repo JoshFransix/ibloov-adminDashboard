@@ -60,7 +60,7 @@ export const state = () => ({
       phoneNumber: "09122734863",
       date: "01/10/2014",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
-      star: 5,
+      star: 1,
       time: "tomorrow",
       all: "all"
 
@@ -93,13 +93,39 @@ export const state = () => ({
     },
     {
       id: 15,
+      name: "Xander Cage",
+      image: "landingImage.png",
+      email: "xander@ggg.com",
+      phoneNumber: "09122734863",
+      date: "01/10/2014",
+      message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
+      star: 5,
+      time: "tomorrow",
+      all: "all"
+
+    },
+    {
+      id: 16,
       name: "Nina Dobrev",
       image: "landingImage.png",
       email: "nina26@ggg.com",
       phoneNumber: "09122734863",
       date: "01/10/2014",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
-      star: 5,
+      star: 4,
+      time: "tomorrow",
+      all: "all"
+
+    },
+    {
+      id: 17,
+      name: "Dave Mikels",
+      image: "landingImage.png",
+      email: "dmikels@ggg.com",
+      phoneNumber: "09122734863",
+      date: "01/10/2014",
+      message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
+      star: 1,
       time: "tomorrow",
       all: "all"
 

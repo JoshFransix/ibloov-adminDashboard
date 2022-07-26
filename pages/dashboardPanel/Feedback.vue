@@ -168,7 +168,7 @@ export default {
       // console.log(feedData);
 
       return feedData.filter((feedback) => {
-        const allOptions = ["Yesterday", "Today", "Tomorrow"];
+        // Time Filters
         if (
           feedback.time === "yesterday" &&
           this.filteredOptions == "Yesterday"
@@ -182,6 +182,11 @@ export default {
           feedback.time === "tomorrow" &&
           this.filteredOptions == "Tomorrow"
         ) {
+          return true;
+        }
+
+        // Star Filter
+        if (feedback.star === this.filteredOptions) {
           return true;
         }
 
