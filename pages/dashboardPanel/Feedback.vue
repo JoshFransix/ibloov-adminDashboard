@@ -156,7 +156,7 @@ export default {
     return {
       feedbackData,
       totalRatingValue: 0,
-      filteredOptions: "",
+      filteredOptions: "All",
       newRating: [],
     };
   },

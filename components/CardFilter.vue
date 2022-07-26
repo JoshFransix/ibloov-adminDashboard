@@ -114,7 +114,7 @@ export default {
     return {
       items: ["All", "Yesterday", "Today", "Tomorrow"],
       filterOptions: "All",
-      checkedFilterValues: "",
+      checkedFilterValues: "All",
     };
   },
   methods: {
