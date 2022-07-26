@@ -1,9 +1,14 @@
 <template>
   <div>
     <div class="sm:mt-4">
-      <v-menu transition="slide-y-reverse-transition">
+      <v-menu
+        v-model="menu"
+        open-on-hover
+        transition="slide-y-reverse-transition"
+        :close-on-content-click="false"
+      >
         <template v-slot:activator="{ on, attrs }">
-          <label class="text-[#999]" v-bind="attrs" v-on="on">
+          <label class="text-[#999] cursor-pointer" v-on="on" v-bind="attrs">
             Filter By:
             <span class="text-[#00237b] ml-2">{{ filterOptions }}</span>
           </label>
@@ -115,6 +120,8 @@ export default {
       items: ["All", "Yesterday", "Today", "Tomorrow"],
       filterOptions: "All",
       checkedFilterValues: "All",
+      menu: false,
+      closeOnClick: true,
     };
   },
   methods: {
