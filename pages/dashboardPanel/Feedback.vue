@@ -120,7 +120,9 @@
             <!-- Review Body -->
             <div class="reviewBody mt-10 w-full">
               <div class="reviewContainer">
-                <div
+                <transition-group
+                  name="fade"
+                  tag="div"
                   class="
                     cardContainer
                     grid grid-cols-2
@@ -137,7 +139,7 @@
                     :key="cardinfo.id"
                     :cardsSection="cardinfo"
                   />
-                </div>
+                </transition-group>
               </div>
             </div>
           </div>
@@ -220,6 +222,17 @@ export default {
 </script>
 
 <style scoped>
+.fade-enter-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave {
+  opacity: 0;
+}
+.fade-leave-to {
+  opacity: 0;
+  /* transition: opacity 0.5s; */
+}
 .selected {
   display: none;
 }
