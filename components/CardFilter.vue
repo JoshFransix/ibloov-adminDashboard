@@ -5,14 +5,33 @@
         v-model="menu"
         transition="slide-y-reverse-transition"
         :close-on-content-click="false"
+        :nudge-height="200"
+        offset-y
       >
         <template v-slot:activator="{ on, attrs }">
-          <label class="text-[#999] cursor-pointer" v-on="on" v-bind="attrs">
+          <label
+            class="
+              text-[#555]
+              rounded-xl
+              px-4
+              py-2
+              bg-slate-300
+              cursor-pointer
+              filter-label
+            "
+            v-on="on"
+            v-bind="attrs"
+          >
             Filter By:
-            <span class="text-[#00237b] ml-2">{{ filterOptions }}</span>
+            <span class="text-[#00237b] ml-2"
+              >{{ filterOptions }}
+              <v-icon color="primary">{{
+                menu ? "mdi-chevron-down" : "mdi-chevron-up"
+              }}</v-icon>
+            </span>
           </label>
         </template>
-        <v-list class="w-[200px]">
+        <v-list>
           <div class="items-center">
             <input
               @change="checkFilters($event)"
@@ -47,7 +66,12 @@
             >
           </div>
           <div>
-            <v-dialog v-model="dialog" persistent max-width="600px">
+            <v-menu
+              v-model="starMenu"
+              :close-on-content-click="false"
+              offset-y
+              offset-x
+            >
               <template v-slot:activator="{ on, attrs }">
                 <input
                   type="checkbox"
@@ -61,16 +85,28 @@
                   v-on="on"
                   v-bind="attrs"
                   for="checkboxStar"
-                  class="cursor-pointer flex pl-4 py-3 hover:bg-[#f4f4f4]"
-                  >Star Rating</label
+                  class="
+                    cursor-pointer
+                    flex
+                    justify-between
+                    pl-4
+                    py-3
+                    hover:bg-[#f4f4f4]
+                  "
+                  >Star Rating
+                  <v-icon>{{
+                    starMenu ? "mdi-chevron-down" : "mdi-chevron-right"
+                  }}</v-icon></label
                 >
               </template>
               <v-card>
                 <v-card-title
                   class="flex flex-row items-center justify-between"
                 >
-                  <span class="text-[#999] text-sm">Filter By</span>
-                  <span class="text-md text-black">Star Rating</span>
+                  <!-- <span class="text-[#999] text-sm">Filter By</span> -->
+                  <span class="text-sm text-[#999] text-center"
+                    >Star Rating</span
+                  >
                 </v-card-title>
                 <v-card-text>
                   <v-container>
@@ -84,7 +120,7 @@
                           empty-icon="$ratingFull"
                           hover
                           length="5"
-                          size="35"
+                          size="20"
                         ></v-rating>
                       </div>
                     </div>
@@ -97,7 +133,7 @@
                   </v-btn>
                 </v-card-actions>
               </v-card>
-            </v-dialog>
+            </v-menu>
           </div>
 
           <div class="items-center">
@@ -147,7 +183,7 @@ export default {
       filterOptions: "All",
       starFilter: 5,
       checkedFilterValues: "All",
-      dialog: false,
+      starMenu: false,
       menu: false,
       closeOnClick: true,
     };
@@ -169,17 +205,27 @@ export default {
     checkStarFilter() {
       this.checkedFilterValues = this.starFilter;
       this.$emit("check-filter", this.checkedFilterValues);
-      this.dialog = false;
+      this.starMenu = false;
     },
   },
 };
 </script>
 
 <style scoped>
-v-list label {
-  color: #444;
-  text-decoration: none;
-  transition: all 0.3s ease-in-out;
+label,
+v-icon,
+div,
+template,
+input,
+v-menu,
+v-btn,
+span {
+  transition: all 0.2s ease-in-out;
+}
+
+label:not(.filter-label):hover,
+v-icon:hover {
+  color: #00237b;
 }
 
 ul {

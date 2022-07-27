@@ -125,10 +125,9 @@ export const state = () => ({
       phoneNumber: "09122734863",
       date: "01/10/2014",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
-      star: 1,
+      star: 5,
       time: "tomorrow",
       all: "all"
-
     }
   ]
 
