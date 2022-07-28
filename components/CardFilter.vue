@@ -3,7 +3,7 @@
     <div class="sm:mt-4">
       <v-menu
         v-model="menu"
-        transition="slide-y-reverse-transition"
+        transition="scale-transition"
         :close-on-content-click="false"
         :nudge-height="200"
         offset-y
@@ -65,12 +65,43 @@
               >{{ items[1] }}</label
             >
           </div>
+          <div class="items-center">
+            <input
+              @change="checkFilters($event)"
+              type="checkbox"
+              id="checkbox3"
+              name="checkbox3"
+              class="absolute opacity-0"
+              :value="items[2]"
+              checked
+            />
+            <label
+              for="checkbox3"
+              class="cursor-pointer flex pl-4 py-3 hover:bg-[#f4f4f4]"
+              >{{ items[2] }}</label
+            >
+          </div>
+          <div class="items-center">
+            <input
+              @change="checkFilters($event)"
+              type="checkbox"
+              id="checkbox4"
+              name="checkbox4"
+              class="absolute opacity-0"
+              :value="items[3]"
+              checked
+            />
+            <label
+              for="checkbox4"
+              class="cursor-pointer flex pl-4 py-3 hover:bg-[#f4f4f4]"
+              >{{ items[3] }}</label
+            >
+          </div>
           <div>
             <v-menu
               v-model="starMenu"
+              transition="scale-transition"
               :close-on-content-click="false"
-              offset-y
-              offset-x
               :nudge-left="70"
             >
               <template v-slot:activator="{ on, attrs }">
@@ -137,22 +168,12 @@
             <v-menu
               v-model="dateMenu"
               :close-on-content-click="false"
-              offset-x
               transition="scale-transition"
             >
               <template v-slot:activator="{ on, attrs }">
-                <input
-                  type="checkbox"
-                  id="checkbox2"
-                  name="checkboxDate"
-                  class="absolute opacity-0"
-                  value="dateFilter"
-                  checked
-                />
                 <label
                   v-on="on"
                   v-bind="attrs"
-                  for="checkboxDate"
                   class="
                     cursor-pointer
                     flex
@@ -189,10 +210,13 @@
                         >
                           <template v-slot:activator="{ on, attrs }">
                             <v-text-field
-                              v-model="date"
+                              v-model="dateFormatted"
+                              @blur="date = parseDate(dateFormatted)"
                               label="From"
                               prepend-icon="mdi-calendar"
                               readonly
+                              outlined
+                              dense
                               v-bind="attrs"
                               v-on="on"
                             ></v-text-field>
@@ -216,22 +240,25 @@
                         </v-menu>
                         <v-menu
                           ref="dateMenu3"
-                          :return-value.sync="date"
+                          :return-value.sync="date2"
                           v-model="dateMenu3"
                           :close-on-content-click="false"
                           transition="scale-transition"
                         >
                           <template v-slot:activator="{ on, attrs }">
                             <v-text-field
-                              v-model="date"
+                              v-model="dateFormatted"
+                              @blur="date = parseDate(dateFormatted)"
                               label="To"
+                              outlined
+                              dense
                               prepend-icon="mdi-calendar"
                               readonly
                               v-bind="attrs"
                               v-on="on"
                             ></v-text-field>
                           </template>
-                          <v-date-picker v-model="date" scrollable
+                          <v-date-picker v-model="date2" scrollable
                             ><v-btn
                               text
                               color="primary"
@@ -242,7 +269,7 @@
                             <v-btn
                               text
                               color="primary"
-                              @click="$refs.dateMenu3.save(date)"
+                              @click="$refs.dateMenu3.save(date2)"
                             >
                               OK
                             </v-btn></v-date-picker
@@ -255,44 +282,14 @@
                 <v-card-actions>
                   <v-spacer></v-spacer>
                   <v-btn color="primary" text @click="dateMenu = false">
+                    Apply
+                  </v-btn>
+                  <v-btn color="primary" text @click="dateMenu = false">
                     Close
                   </v-btn>
                 </v-card-actions>
               </v-card>
             </v-menu>
-          </div>
-
-          <div class="items-center">
-            <input
-              @change="checkFilters($event)"
-              type="checkbox"
-              id="checkbox3"
-              name="checkbox3"
-              class="absolute opacity-0"
-              :value="items[2]"
-              checked
-            />
-            <label
-              for="checkbox3"
-              class="cursor-pointer flex pl-4 py-3 hover:bg-[#f4f4f4]"
-              >{{ items[2] }}</label
-            >
-          </div>
-          <div class="items-center">
-            <input
-              @change="checkFilters($event)"
-              type="checkbox"
-              id="checkbox4"
-              name="checkbox4"
-              class="absolute opacity-0"
-              :value="items[3]"
-              checked
-            />
-            <label
-              for="checkbox4"
-              class="cursor-pointer flex pl-4 py-3 hover:bg-[#f4f4f4]"
-              >{{ items[3] }}</label
-            >
           </div>
         </v-list>
       </v-menu>
@@ -303,22 +300,39 @@
 <script>
 export default {
   emits: ["check-filter"],
-  data() {
-    return {
-      items: ["All", "Yesterday", "Today", "Tomorrow"],
-      filterOptions: "All",
-      starFilter: 5,
-      checkedFilterValues: "All",
-      starMenu: false,
-      dateMenu: false,
-      dateMenu2: false,
-      dateMenu3: false,
-      date: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
+  data: (vm) => ({
+    items: ["All", "7 days", "15 days", "1 month"],
+    filterOptions: "All",
+    starFilter: 5,
+    checkedFilterValues: "All",
+    starMenu: false,
+    dateMenu: false,
+    dateMenu2: false,
+    dateMenu3: false,
+    date: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
+      .toISOString()
+      .substr(0, 10),
+    date2: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
+      .toISOString()
+      .substr(0, 10),
+    dateFormatted: vm.formatDate(
+      new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
         .toISOString()
-        .substr(0, 10),
-      menu: false,
-      closeOnClick: true,
-    };
+        .substr(0, 10)
+    ),
+    menu: false,
+    closeOnClick: true,
+  }),
+  computed: {
+    computedDateFormatted() {
+      return this.formatDate(this.date);
+    },
+  },
+
+  watch: {
+    date(val) {
+      this.dateFormatted = this.formatDate(this.date);
+    },
   },
   methods: {
     checkFilters(event) {
@@ -340,6 +354,18 @@ export default {
       this.starMenu = false;
     },
     checkDateFilter() {},
+    formatDate(date) {
+      if (!date) return null;
+
+      const [year, month, day] = date.split("-");
+      return `${month}/${day}/${year}`;
+    },
+    parseDate(date) {
+      if (!date) return null;
+
+      const [month, day, year] = date.split("/");
+      return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+    },
   },
 };
 </script>

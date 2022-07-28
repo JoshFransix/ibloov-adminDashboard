@@ -169,19 +169,13 @@ export default {
 
       return feedData.filter((feedback) => {
         // Time Filters
-        if (
-          feedback.time === "yesterday" &&
-          this.filteredOptions == "Yesterday"
-        ) {
+        if (feedback.time === "7 days" && this.filteredOptions == "7 days") {
           return true;
         }
-        if (feedback.time === "today" && this.filteredOptions == "Today") {
+        if (feedback.time === "15 days" && this.filteredOptions == "15 days") {
           return true;
         }
-        if (
-          feedback.time === "tomorrow" &&
-          this.filteredOptions == "Tomorrow"
-        ) {
+        if (feedback.time === "1 month" && this.filteredOptions == "1 month") {
           return true;
         }
 

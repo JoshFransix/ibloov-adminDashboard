@@ -10,7 +10,7 @@ export const state = () => ({
       date: "25/05/2022",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
       star: 4,
-      time: "yesterday",
+      time: "7 days",
       all: "all"
     },
     {
@@ -22,7 +22,7 @@ export const state = () => ({
       date: "12/03/2019",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
       star: 5,
-      time: "tomorrow",
+      time: "15 days",
       all: "all"
 
     },
@@ -35,7 +35,7 @@ export const state = () => ({
       date: "15/08/2002",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
       star: 3,
-      time: "yesterday",
+      time: "7 days",
       all: "all"
 
     },
@@ -48,7 +48,7 @@ export const state = () => ({
       date: "01/10/2014",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
       star: 3,
-      time: "today",
+      time: "1 month",
       all: "all"
 
     },
@@ -61,7 +61,7 @@ export const state = () => ({
       date: "01/10/2014",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
       star: 1,
-      time: "tomorrow",
+      time: "15 days",
       all: "all"
 
     },
@@ -74,7 +74,7 @@ export const state = () => ({
       date: "01/10/2014",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
       star: 2,
-      time: "today",
+      time: "1 month",
       all: "all"
 
     },
@@ -87,7 +87,7 @@ export const state = () => ({
       date: "01/10/2014",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
       star: 5,
-      time: "today",
+      time: "1 month",
       all: "all"
 
     },
@@ -100,7 +100,7 @@ export const state = () => ({
       date: "01/10/2014",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
       star: 5,
-      time: "tomorrow",
+      time: "15 days",
       all: "all"
 
     },
@@ -113,7 +113,7 @@ export const state = () => ({
       date: "01/10/2014",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
       star: 4,
-      time: "tomorrow",
+      time: "15 days",
       all: "all"
 
     },
@@ -126,7 +126,7 @@ export const state = () => ({
       date: "01/10/2014",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
       star: 5,
-      time: "tomorrow",
+      time: "15 days",
       all: "all"
     }
   ]
