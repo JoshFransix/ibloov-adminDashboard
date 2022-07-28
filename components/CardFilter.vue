@@ -71,6 +71,7 @@
               :close-on-content-click="false"
               offset-y
               offset-x
+              :nudge-left="70"
             >
               <template v-slot:activator="{ on, attrs }">
                 <input
@@ -128,7 +129,132 @@
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn color="primary" text @click="dialog = false">
+                </v-card-actions>
+              </v-card>
+            </v-menu>
+          </div>
+          <div>
+            <v-menu
+              v-model="dateMenu"
+              :close-on-content-click="false"
+              offset-x
+              transition="scale-transition"
+            >
+              <template v-slot:activator="{ on, attrs }">
+                <input
+                  type="checkbox"
+                  id="checkbox2"
+                  name="checkboxDate"
+                  class="absolute opacity-0"
+                  value="dateFilter"
+                  checked
+                />
+                <label
+                  v-on="on"
+                  v-bind="attrs"
+                  for="checkboxDate"
+                  class="
+                    cursor-pointer
+                    flex
+                    justify-between
+                    pl-4
+                    py-3
+                    hover:bg-[#f4f4f4]
+                  "
+                  >Custom Date
+                  <v-icon>{{
+                    dateMenu ? "mdi-chevron-down" : "mdi-chevron-right"
+                  }}</v-icon></label
+                >
+              </template>
+              <v-card>
+                <v-card-title
+                  class="flex flex-row items-center justify-between"
+                >
+                  <!-- <span class="text-[#999] text-sm">Filter By</span> -->
+                  <span class="text-sm text-[#999] text-center"
+                    >Custom Date</span
+                  >
+                </v-card-title>
+                <v-card-text>
+                  <v-container>
+                    <div class="flex justify-center items-center">
+                      <div>
+                        <v-menu
+                          ref="dateMenu2"
+                          :return-value.sync="date"
+                          v-model="dateMenu2"
+                          :close-on-content-click="false"
+                          transition="scale-transition"
+                        >
+                          <template v-slot:activator="{ on, attrs }">
+                            <v-text-field
+                              v-model="date"
+                              label="From"
+                              prepend-icon="mdi-calendar"
+                              readonly
+                              v-bind="attrs"
+                              v-on="on"
+                            ></v-text-field>
+                          </template>
+                          <v-date-picker v-model="date" scrollable>
+                            <v-btn
+                              text
+                              color="primary"
+                              @click="dateMenu2 = false"
+                            >
+                              Cancel
+                            </v-btn>
+                            <v-btn
+                              text
+                              color="primary"
+                              @click="$refs.dateMenu2.save(date)"
+                            >
+                              OK
+                            </v-btn></v-date-picker
+                          >
+                        </v-menu>
+                        <v-menu
+                          ref="dateMenu3"
+                          :return-value.sync="date"
+                          v-model="dateMenu3"
+                          :close-on-content-click="false"
+                          transition="scale-transition"
+                        >
+                          <template v-slot:activator="{ on, attrs }">
+                            <v-text-field
+                              v-model="date"
+                              label="To"
+                              prepend-icon="mdi-calendar"
+                              readonly
+                              v-bind="attrs"
+                              v-on="on"
+                            ></v-text-field>
+                          </template>
+                          <v-date-picker v-model="date" scrollable
+                            ><v-btn
+                              text
+                              color="primary"
+                              @click="dateMenu3 = false"
+                            >
+                              Cancel
+                            </v-btn>
+                            <v-btn
+                              text
+                              color="primary"
+                              @click="$refs.dateMenu3.save(date)"
+                            >
+                              OK
+                            </v-btn></v-date-picker
+                          >
+                        </v-menu>
+                      </div>
+                    </div>
+                  </v-container>
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn color="primary" text @click="dateMenu = false">
                     Close
                   </v-btn>
                 </v-card-actions>
@@ -184,6 +310,12 @@ export default {
       starFilter: 5,
       checkedFilterValues: "All",
       starMenu: false,
+      dateMenu: false,
+      dateMenu2: false,
+      dateMenu3: false,
+      date: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
+        .toISOString()
+        .substr(0, 10),
       menu: false,
       closeOnClick: true,
     };
@@ -207,6 +339,7 @@ export default {
       this.$emit("check-filter", this.checkedFilterValues);
       this.starMenu = false;
     },
+    checkDateFilter() {},
   },
 };
 </script>
