@@ -232,7 +232,11 @@
                             <v-btn
                               text
                               color="primary"
-                              @click="$refs.dateMenu2.save(date)"
+                              @click="
+                                () => {
+                                  $refs.dateMenu2.save(date);
+                                }
+                              "
                             >
                               OK
                             </v-btn></v-date-picker
@@ -247,8 +251,8 @@
                         >
                           <template v-slot:activator="{ on, attrs }">
                             <v-text-field
-                              v-model="dateFormatted"
-                              @blur="date = parseDate(dateFormatted)"
+                              v-model="dateFormatted2"
+                              @blur="date2 = parseDate(dateFormatted2)"
                               label="To"
                               outlined
                               dense
@@ -281,9 +285,7 @@
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn color="primary" text @click="dateMenu = false">
-                    Apply
-                  </v-btn>
+                  <v-btn color="primary" text @click="getDates"> Apply </v-btn>
                   <v-btn color="primary" text @click="dateMenu = false">
                     Close
                   </v-btn>
@@ -320,18 +322,29 @@ export default {
         .toISOString()
         .substr(0, 10)
     ),
+    dateFormatted2: vm.formatDate(
+      new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
+        .toISOString()
+        .substr(0, 10)
+    ),
     menu: false,
     closeOnClick: true,
   }),
   computed: {
-    computedDateFormatted() {
+    computedFromDateFormatted() {
       return this.formatDate(this.date);
+    },
+    computedToDateFormatted() {
+      return this.formatDate(this.date2);
     },
   },
 
   watch: {
     date(val) {
       this.dateFormatted = this.formatDate(this.date);
+    },
+    date2(val) {
+      this.dateFormatted2 = this.formatDate(this.date2);
     },
   },
   methods: {
@@ -353,7 +366,6 @@ export default {
       this.$emit("check-filter", this.checkedFilterValues);
       this.starMenu = false;
     },
-    checkDateFilter() {},
     formatDate(date) {
       if (!date) return null;
 
@@ -365,6 +377,18 @@ export default {
 
       const [month, day, year] = date.split("/");
       return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+    },
+    getDates() {
+      this.filterOptions = "Custom Date";
+      var startDate = this.dateFormatted;
+      var endDate = this.dateFormatted2;
+      this.checkedFilterValues = [startDate, endDate];
+      this.$emit("check-filter", this.checkedFilterValues);
+      var date = new Date();
+      date.setDate(date.getDate() - 31);
+
+      console.log(new Date(new Date().setDate(new Date().getDate() - 30)));
+      // console.log(new Date(new Date(this.dateFormatted)));
     },
   },
 };

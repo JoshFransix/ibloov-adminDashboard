@@ -168,14 +168,35 @@ export default {
       // console.log(feedData);
 
       return feedData.filter((feedback) => {
+        // Custom Date Filter
+
+        if (
+          new Date(feedback.date) >= new Date(this.filteredOptions[0]) &&
+          new Date(feedback.date) <= new Date(this.filteredOptions[1])
+        ) {
+          return true;
+        }
+        // return hitDateMatches.length > 0;
         // Time Filters
-        if (feedback.time === "7 days" && this.filteredOptions == "7 days") {
+        if (
+          new Date(feedback.date) <=
+            new Date(new Date().setDate(new Date().getDate() - 7)) &&
+          this.filteredOptions == "7 days"
+        ) {
           return true;
         }
-        if (feedback.time === "15 days" && this.filteredOptions == "15 days") {
+        if (
+          new Date(feedback.date) <=
+            new Date(new Date().setDate(new Date().getDate() - 14)) &&
+          this.filteredOptions == "15 days"
+        ) {
           return true;
         }
-        if (feedback.time === "1 month" && this.filteredOptions == "1 month") {
+        if (
+          new Date(feedback.date) <=
+            new Date(new Date().setDate(new Date().getDate() - 30)) &&
+          this.filteredOptions == "1 month"
+        ) {
           return true;
         }
 
@@ -187,6 +208,7 @@ export default {
         if (feedback.all === "all" && this.filteredOptions == "All") {
           return true;
         }
+
         return false;
       });
     },
