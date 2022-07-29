@@ -362,9 +362,11 @@ export default {
       this.$emit("check-filter", this.checkedFilterValues);
     },
     checkStarFilter() {
+      this.filterOptions = "Star Rating";
       this.checkedFilterValues = this.starFilter;
       this.$emit("check-filter", this.checkedFilterValues);
-      this.starMenu = false;
+      this.menu = false;
+      // this.starMenu = false;
     },
     formatDate(date) {
       if (!date) return null;
@@ -374,7 +376,6 @@ export default {
     },
     parseDate(date) {
       if (!date) return null;
-
       const [month, day, year] = date.split("/");
       return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
     },
@@ -384,10 +385,9 @@ export default {
       var endDate = this.dateFormatted2;
       this.checkedFilterValues = [startDate, endDate];
       this.$emit("check-filter", this.checkedFilterValues);
-      var date = new Date();
-      date.setDate(date.getDate() - 31);
+      this.menu = false;
 
-      console.log(new Date(new Date().setDate(new Date().getDate() - 30)));
+      console.log(new Date("07/15/2022"));
       // console.log(new Date(new Date(this.dateFormatted)));
     },
   },

@@ -168,21 +168,18 @@ export default {
       // console.log(feedData);
 
       return feedData.filter((feedback) => {
+        // 7 days
+        var date = new Date();
+        var sevenDays = new Date(date.setDate(date.getDate() - 7));
         // Custom Date Filter
-
         if (
           new Date(feedback.date) >= new Date(this.filteredOptions[0]) &&
           new Date(feedback.date) <= new Date(this.filteredOptions[1])
         ) {
           return true;
         }
-        // return hitDateMatches.length > 0;
         // Time Filters
-        if (
-          new Date(feedback.date) <=
-            new Date(new Date().setDate(new Date().getDate() - 7)) &&
-          this.filteredOptions == "7 days"
-        ) {
+        if (new Date(feedback.date) <= sevenDays) {
           return true;
         }
         if (

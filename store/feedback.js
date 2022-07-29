@@ -32,7 +32,7 @@ export const state = () => ({
       image: "landingImage.png",
       email: "mikey@outlook.com",
       phoneNumber: "07134676432",
-      date: "07/15/2022",
+      date: "07/25/2022",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
       star: 3,
       time: "7 days",
