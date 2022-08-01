@@ -1,5 +1,8 @@
 <template>
-  <v-card class="relative card bg-white rounded-lg pr-4" elevation="0">
+  <v-card
+    class="relative card bg-white rounded-lg pr-4 h-[80px] w-[300px]"
+    elevation="0"
+  >
     <v-card-text class="">
       <div
         class="
@@ -50,7 +53,14 @@
       </div>
       <div class="cardText mb-0">
         <p class="font-normal text-sm text-[#010101] mt-0 md:mt-0">
-          {{ cardsSection.message }}
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos
+          impedit consequuntur ipsam aspernatur quasi quae, possimus harum autem
+          animi <span :class="reveal ? 'hide' : 'show'">.....</span
+          ><span :class="reveal ? 'show' : 'hide'"
+            >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos
+            impedit consequuntur ipsam aspernatur quasi quae, possimus harum
+            autem</span
+          >
         </p>
       </div>
     </v-card-text>
@@ -58,10 +68,10 @@
     <v-card-actions class="mt-0 pt-0">
       <div class="cardFooter mt-0 flex justify-between items-center w-full">
         <button
-          @click="reveal = true"
+          @click="reveal = !reveal"
           class="text-xs text-[#00237b] font-bold ml-2"
         >
-          Read More
+          {{ reveal ? "Read Less" : "Read More" }}
         </button>
         <div class="">
           <v-rating
@@ -81,7 +91,7 @@
         </div>
       </div>
     </v-card-actions>
-    <v-expand-transition>
+    <!-- <v-expand-transition>
       <v-card
         v-if="reveal"
         class="transition-fast-in-fast-out v-card--reveal"
@@ -101,7 +111,7 @@
           </v-btn>
         </v-card-actions>
       </v-card>
-    </v-expand-transition>
+    </v-expand-transition> -->
   </v-card>
 </template>
 
@@ -118,29 +128,31 @@ export default {
       },
     };
   },
-  computed: {
-    starValue: {
-      get() {
-        return this.rating;
-      },
-      set(value) {
-        this.$emit("star-rating", value);
-        this.rating = value;
-
-        // return this.rating;
-      },
-      // this.$emit("update:modelValue", value);
-
-      // const value = 4;
-      // this.$emit("changeStar", this.rating);
-      // console.log(this.rating);
-      // return value;
+  methods: {
+    showMore(event) {
+      event.target.innerText = "Read Less";
+      console.log(event.target.innerText);
     },
   },
 };
 </script>
 
+
 <style scoped>
+div,
+span,
+p {
+  transition: all 0.3s ease-in-out;
+}
+.show {
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+}
+.hide {
+  opacity: 0;
+  display: none;
+  transition: all 0.3s ease-in-out;
+}
 .card {
   width: 100%;
   height: 100%;
