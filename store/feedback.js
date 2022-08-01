@@ -18,11 +18,10 @@ export const state = () => ({
       image: "landingImage.png",
       email: "good@ymail.com",
       phoneNumber: "08011123411",
-      date: "07/30/2022",
+      date: "01/01/2022",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
       star: 5,
       all: "all"
-
     },
     {
       id: 10,
@@ -30,7 +29,7 @@ export const state = () => ({
       image: "landingImage.png",
       email: "mikey@outlook.com",
       phoneNumber: "07134676432",
-      date: "07/20/2022",
+      date: "06/20/2022",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
       star: 3,
       all: "all"

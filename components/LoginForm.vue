@@ -35,7 +35,6 @@
                 />
               </div>
               <div class="">
-                <!-- <img src="@/assets/img/password.svg" alt="" class="mr-4" /> -->
                 <v-text-field
                   v-model="password"
                   :rules="passwordRules"
@@ -51,13 +50,6 @@
                   @click:append="passwordShow = !passwordShow"
                   required
                 />
-                <!-- <div>
-                  <img
-                    src="@/assets/img/eye.svg"
-                    class="ml-4 cursor-pointer"
-                    alt=""
-                  />
-                </div> -->
               </div>
             </div>
             <div
@@ -68,19 +60,11 @@
                 justify-between
                 items-center
                 relative
-                md:block
+                sm:flex-col sm:items-start
               "
             >
-              <div class="radioInput flex items-center relative w-max">
-                <!-- <CheckBox /> -->
+              <CheckBox />
 
-                <v-switch
-                  label="Remember me"
-                  color="#fff"
-                  input-value="true"
-                  class="text-slate-200"
-                ></v-switch>
-              </div>
               <NuxtLink to="/">
                 <v-btn
                   text
@@ -110,7 +94,7 @@
                   hover:bg-gray-300
                 "
               >
-                <span class="primary--text">Login</span>
+                <span class="primary--text">Next</span>
               </v-btn>
             </v-card-actions>
           </v-form>

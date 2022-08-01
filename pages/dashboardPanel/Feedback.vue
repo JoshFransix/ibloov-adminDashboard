@@ -165,64 +165,81 @@ export default {
   computed: {
     feedback() {
       const feedData = this.$store.state.feedback.feedbackData2;
-      // console.log(feedData);
 
       return feedData.filter((feedback) => {
-        // Custom Date Filter
-        if (
-          new Date(feedback.date) >= new Date(this.filteredOptions[0]) &&
-          new Date(feedback.date) <= new Date(this.filteredOptions[1])
-        ) {
-          return true;
-        }
+        if (feedback) {
+          // Custom Date Filter
+          if (
+            new Date(feedback.date) >= new Date(this.filteredOptions[0]) &&
+            new Date(feedback.date) <= new Date(this.filteredOptions[1])
+          ) {
+            return true;
+          }
 
-        // 7 days filter
-        if (
-          new Date(feedback.date) >=
-            new Date(new Date().setDate(new Date().getDate() - 7)) &&
-          new Date(feedback.date) < new Date() &&
-          this.filteredOptions == "7 days"
-        ) {
-          return true;
-        }
-        // 15 days filter
-        if (
-          new Date(feedback.date) >=
-            new Date(new Date().setDate(new Date().getDate() - 15)) &&
-          new Date(feedback.date) < new Date() &&
-          this.filteredOptions == "15 days"
-        ) {
-          return true;
-        }
-        // 1 month filter
-        if (
-          new Date(feedback.date) >=
-            new Date(new Date().setDate(new Date().getDate() - 31)) &&
-          new Date(feedback.date) < new Date() &&
-          this.filteredOptions == "1 month"
-        ) {
-          return true;
-        }
+          // 7 days filter
+          if (
+            new Date(feedback.date) >=
+              new Date(new Date().setDate(new Date().getDate() - 7)) &&
+            new Date(feedback.date) <= new Date() &&
+            this.filteredOptions == "7 days"
+          ) {
+            return true;
+          }
+          // 15 days filter
+          if (
+            new Date(feedback.date) >=
+              new Date(new Date().setDate(new Date().getDate() - 15)) &&
+            new Date(feedback.date) <= new Date() &&
+            this.filteredOptions == "15 days"
+          ) {
+            return true;
+          }
+          // 1 month filter
+          if (
+            new Date(feedback.date) >=
+              new Date(new Date().setMonth(new Date().getMonth() - 1)) &&
+            new Date(feedback.date) <= new Date() &&
+            this.filteredOptions == "1 month"
+          ) {
+            return true;
+          }
+          // 6 months filter
+          if (
+            new Date(feedback.date) >=
+              new Date(new Date().setMonth(new Date().getMonth() - 6)) &&
+            new Date(feedback.date) <= new Date() &&
+            this.filteredOptions == "6 months"
+          ) {
+            return true;
+          }
+          // 1 year filter
+          if (
+            new Date(feedback.date) >=
+              new Date(new Date().setFullYear(new Date().getFullYear() - 1)) &&
+            new Date(feedback.date) <= new Date() &&
+            this.filteredOptions == "1 year"
+          ) {
+            return true;
+          }
 
-        // Star Rating Filter
-        if (feedback.star === this.filteredOptions) {
-          return true;
+          // Star Rating Filter
+          if (feedback.star === this.filteredOptions) {
+            return true;
+          }
+          // Filter for All
+          if (feedback.all === "all" && this.filteredOptions == "All") {
+            return true;
+          }
+        } else {
+          // Default
+          return false;
         }
-        // Filter for All
-        if (feedback.all === "all" && this.filteredOptions == "All") {
-          return true;
-        }
-        // Default
-        return false;
       });
     },
   },
   methods: {
     updateDataByFilter(updatedOptions) {
       this.filteredOptions = updatedOptions;
-      console.log(this.filteredOptions);
-      // this.feedbackData = data;
-      // return data;
     },
     totalReviews() {
       const count = this.feedback.filter((item) => item.id).length;

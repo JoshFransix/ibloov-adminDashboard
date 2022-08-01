@@ -97,6 +97,38 @@
               >{{ items[3] }}</label
             >
           </div>
+          <div class="items-center">
+            <input
+              @change="checkFilters($event)"
+              type="checkbox"
+              id="checkbox5"
+              name="checkbox5"
+              class="absolute opacity-0"
+              :value="items[4]"
+              checked
+            />
+            <label
+              for="checkbox5"
+              class="cursor-pointer flex pl-4 py-3 hover:bg-[#f4f4f4]"
+              >{{ items[4] }}</label
+            >
+          </div>
+          <div class="items-center">
+            <input
+              @change="checkFilters($event)"
+              type="checkbox"
+              id="checkbox6"
+              name="checkbox6"
+              class="absolute opacity-0"
+              :value="items[5]"
+              checked
+            />
+            <label
+              for="checkbox6"
+              class="cursor-pointer flex pl-4 py-3 hover:bg-[#f4f4f4]"
+              >{{ items[5] }}</label
+            >
+          </div>
           <div>
             <v-menu
               v-model="starMenu"
@@ -303,7 +335,7 @@
 export default {
   emits: ["check-filter"],
   data: (vm) => ({
-    items: ["All", "7 days", "15 days", "1 month"],
+    items: ["All", "7 days", "15 days", "1 month", "6 months", "1 year"],
     filterOptions: "All",
     starFilter: 5,
     checkedFilterValues: "All",
@@ -387,8 +419,9 @@ export default {
       this.$emit("check-filter", this.checkedFilterValues);
       this.menu = false;
 
-      console.log(new Date());
-      // console.log(new Date(new Date(this.dateFormatted)));
+      console.log(
+        new Date(new Date().setFullYear(new Date().getFullYear() - 1))
+      );
     },
   },
 };
