@@ -387,7 +387,7 @@ export default {
       this.$emit("check-filter", this.checkedFilterValues);
       this.menu = false;
 
-      console.log(new Date("07/15/2022"));
+      console.log(new Date());
       // console.log(new Date(new Date(this.dateFormatted)));
     },
   },

@@ -168,9 +168,6 @@ export default {
       // console.log(feedData);
 
       return feedData.filter((feedback) => {
-        // 7 days
-        var date = new Date();
-        var sevenDays = new Date(date.setDate(date.getDate() - 7));
         // Custom Date Filter
         if (
           new Date(feedback.date) >= new Date(this.filteredOptions[0]) &&
@@ -178,34 +175,44 @@ export default {
         ) {
           return true;
         }
-        // Time Filters
-        if (new Date(feedback.date) <= sevenDays) {
+
+        // 7 days filter
+        if (
+          new Date(feedback.date) >=
+            new Date(new Date().setDate(new Date().getDate() - 7)) &&
+          new Date(feedback.date) < new Date() &&
+          this.filteredOptions == "7 days"
+        ) {
           return true;
         }
+        // 15 days filter
         if (
-          new Date(feedback.date) <=
-            new Date(new Date().setDate(new Date().getDate() - 14)) &&
+          new Date(feedback.date) >=
+            new Date(new Date().setDate(new Date().getDate() - 15)) &&
+          new Date(feedback.date) < new Date() &&
           this.filteredOptions == "15 days"
         ) {
           return true;
         }
+        // 1 month filter
         if (
-          new Date(feedback.date) <=
-            new Date(new Date().setDate(new Date().getDate() - 30)) &&
+          new Date(feedback.date) >=
+            new Date(new Date().setDate(new Date().getDate() - 31)) &&
+          new Date(feedback.date) < new Date() &&
           this.filteredOptions == "1 month"
         ) {
           return true;
         }
 
-        // Star Filter
+        // Star Rating Filter
         if (feedback.star === this.filteredOptions) {
           return true;
         }
-
+        // Filter for All
         if (feedback.all === "all" && this.filteredOptions == "All") {
           return true;
         }
-
+        // Default
         return false;
       });
     },

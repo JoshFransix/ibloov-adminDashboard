@@ -10,7 +10,6 @@ export const state = () => ({
       date: "07/29/2022",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
       star: 4,
-      time: "7 days",
       all: "all",
     },
     {
@@ -22,7 +21,6 @@ export const state = () => ({
       date: "07/30/2022",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
       star: 5,
-      time: "15 days",
       all: "all"
 
     },
@@ -32,10 +30,9 @@ export const state = () => ({
       image: "landingImage.png",
       email: "mikey@outlook.com",
       phoneNumber: "07134676432",
-      date: "07/25/2022",
+      date: "07/20/2022",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
       star: 3,
-      time: "7 days",
       all: "all"
 
     },
@@ -48,7 +45,6 @@ export const state = () => ({
       date: "07/17/2023",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
       star: 3,
-      time: "1 month",
       all: "all"
 
     },
@@ -61,7 +57,6 @@ export const state = () => ({
       date: "10/10/2022",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
       star: 1,
-      time: "15 days",
       all: "all"
 
     },
@@ -74,7 +69,6 @@ export const state = () => ({
       date: "09/14/2022",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
       star: 2,
-      time: "1 month",
       all: "all"
 
     },
@@ -87,7 +81,6 @@ export const state = () => ({
       date: "11/10/2022",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
       star: 5,
-      time: "1 month",
       all: "all"
 
     },
@@ -100,7 +93,6 @@ export const state = () => ({
       date: "11/20/2022",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
       star: 5,
-      time: "15 days",
       all: "all"
 
     },
@@ -113,7 +105,6 @@ export const state = () => ({
       date: "12/10/2022",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
       star: 4,
-      time: "15 days",
       all: "all"
 
     },
@@ -126,7 +117,17 @@ export const state = () => ({
       date: "01/10/2023",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
       star: 5,
-      time: "15 days",
+      all: "all"
+    },
+    {
+      id: 18,
+      name: "Santan Dave",
+      image: "landingImage.png",
+      email: "santan@dave.com",
+      phoneNumber: "09122734863",
+      date: "07/02/2022",
+      message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
+      star: 5,
       all: "all"
     }
   ]
