@@ -8,7 +8,7 @@ export const state = () => ({
       email: "test256@gmail.com",
       phoneNumber: "09012276905",
       date: "07/29/2022",
-      message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
+      message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam     aspernatur quasi quae, possimus harum autem animi. Sit eos impedit consequuntur ipsam     aspernatur quasi quae, possimus harum autem animi. Sit eos impedit consequuntur ipsam     aspernatur quasi quae, possimus harum autem animi.",
       star: 4,
       all: "all",
     },
@@ -19,7 +19,7 @@ export const state = () => ({
       email: "good@ymail.com",
       phoneNumber: "08011123411",
       date: "01/01/2022",
-      message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
+      message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi. Sit eos impedit consequuntur ipsam     aspernatur quasi quae, possimus harum autem animi. Sit eos impedit consequuntur ipsam     aspernatur quasi quae, possimus harum autem animi. Sit eos impedit consequuntur ipsam     aspernatur quasi quae, possimus harum autem animi.",
       star: 5,
       all: "all"
     },
@@ -30,7 +30,7 @@ export const state = () => ({
       email: "mikey@outlook.com",
       phoneNumber: "07134676432",
       date: "06/20/2022",
-      message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
+      message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi. Sit eos impedit consequuntur ipsam     aspernatur quasi quae, possimus harum autem animi. Sit eos impedit consequuntur ipsam     aspernatur quasi quae, possimus harum autem animi.",
       star: 3,
       all: "all"
 
@@ -42,7 +42,7 @@ export const state = () => ({
       email: "nina26@ggg.com",
       phoneNumber: "09122734863",
       date: "07/17/2023",
-      message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
+      message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi. Sit eos impedit consequuntur ipsam     aspernatur quasi quae, possimus harum autem animi.",
       star: 3,
       all: "all"
 
@@ -54,7 +54,7 @@ export const state = () => ({
       email: "nina26@ggg.com",
       phoneNumber: "09122734863",
       date: "10/10/2022",
-      message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
+      message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi. Sit eos impedit consequuntur ipsam     aspernatur quasi quae, possimus harum autem animi.",
       star: 1,
       all: "all"
 
@@ -66,7 +66,7 @@ export const state = () => ({
       email: "nina26@ggg.com",
       phoneNumber: "09122734863",
       date: "09/14/2022",
-      message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
+      message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi. Sit eos impedit consequuntur ipsam     aspernatur quasi quae, possimus harum autem animi.",
       star: 2,
       all: "all"
 
@@ -78,7 +78,7 @@ export const state = () => ({
       email: "nina26@ggg.com",
       phoneNumber: "09122734863",
       date: "11/10/2022",
-      message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
+      message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi. Sit eos impedit consequuntur ipsam     aspernatur quasi quae, possimus harum autem animi. Sit eos impedit consequuntur ipsam     aspernatur quasi quae, possimus harum autem animi.",
       star: 5,
       all: "all"
 
@@ -90,7 +90,7 @@ export const state = () => ({
       email: "xander@ggg.com",
       phoneNumber: "09122734863",
       date: "11/20/2022",
-      message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
+      message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi. Sit eos impedit consequuntur ipsam     aspernatur quasi quae, possimus harum autem animi.",
       star: 5,
       all: "all"
 
@@ -102,7 +102,7 @@ export const state = () => ({
       email: "nina26@ggg.com",
       phoneNumber: "09122734863",
       date: "12/10/2022",
-      message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
+      message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi. Sit eos impedit consequuntur ipsam     aspernatur quasi quae, possimus harum autem animi.",
       star: 4,
       all: "all"
 
@@ -114,7 +114,7 @@ export const state = () => ({
       email: "dmikels@ggg.com",
       phoneNumber: "09122734863",
       date: "01/10/2023",
-      message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
+      message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi. Sit eos impedit consequuntur ipsam     aspernatur quasi quae, possimus harum autem animi. Sit eos impedit consequuntur ipsam     aspernatur quasi quae, possimus harum autem animi.",
       star: 5,
       all: "all"
     },
@@ -125,7 +125,7 @@ export const state = () => ({
       email: "santan@dave.com",
       phoneNumber: "09122734863",
       date: "07/02/2022",
-      message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi.",
+      message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi. Sit eos impedit consequuntur ipsam     aspernatur quasi quae, possimus harum autem animi.",
       star: 5,
       all: "all"
     }

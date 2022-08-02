@@ -1,9 +1,9 @@
 <template>
   <v-card
     class="relative card bg-white rounded-lg pr-4 h-[80px] w-[300px]"
-    elevation="0"
+    :elevation="reveal ? '6' : '0'"
   >
-    <v-card-text class="">
+    <div class="px-4 pt-2">
       <div
         class="
           cardHeader
@@ -51,21 +51,15 @@
           >
         </div>
       </div>
-      <div class="cardText mb-0">
-        <p class="font-normal text-sm text-[#010101] mt-0 md:mt-0">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos
-          impedit consequuntur ipsam aspernatur quasi quae, possimus harum autem
-          animi <span :class="reveal ? 'hide' : 'show'">.....</span
-          ><span :class="reveal ? 'show' : 'hide'"
-            >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos
-            impedit consequuntur ipsam aspernatur quasi quae, possimus harum
-            autem</span
-          >
-        </p>
+      <div :class="reveal ? 'showContent' : 'hideContent'">
+        <span class="font-normal text-sm text-[#010101]" ref="cardMessage">
+          {{ cardsSection.message }}
+        </span>
+        <span :class="reveal ? 'hide' : 'overlay'"></span>
       </div>
-    </v-card-text>
+    </div>
 
-    <v-card-actions class="mt-0 pt-0">
+    <v-card-actions class="mt-0 pt-0 mb-2">
       <div class="cardFooter mt-0 flex justify-between items-center w-full">
         <button
           @click="reveal = !reveal"
@@ -74,8 +68,7 @@
           {{ reveal ? "Read Less" : "Read More" }}
         </button>
         <div class="">
-          <v-rating
-            class="inline-block transition duration-200"
+          <v-rating            class="inline-block transition duration-200"
             v-model="cardsSection.star"
             color="starfilled"
             background-color="starempty"
@@ -128,11 +121,9 @@ export default {
       },
     };
   },
-  methods: {
-    showMore(event) {
-      event.target.innerText = "Read Less";
-      console.log(event.target.innerText);
-    },
+  mounted() {
+    let text = this.$refs["cardMessage"];
+    console.log(text);
   },
 };
 </script>
@@ -153,9 +144,34 @@ p {
   display: none;
   transition: all 0.3s ease-in-out;
 }
+
+.hideContent {
+  position: relative;
+  overflow: hidden;
+  line-height: 1em;
+  height: 6em;
+}
+
+.showContent {
+  line-height: 1em;
+  height: auto;
+  position: relative;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(rgba(255, 255, 255, 0.9), #fff);
+  box-shadow: 0px -10px 30px rgba(255, 255, 255, 0.7);
+}
+
 .card {
   width: 100%;
-  height: 100%;
+  height: calc(100% - 2px);
 }
 
 .text-small {
