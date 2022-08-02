@@ -15,22 +15,20 @@
           md:flex-col
         "
       >
-        <div
-          class="topLeft d-flex justify-space-between align-center md:flex-col"
-        >
+        <div class="topLeft flex justify-between items-center md:flex-col">
           <v-avatar size="75" class="absolute -mt-8 mr-3 md:-mt-12">
             <img :src="require(`@/assets/img/${cardsSection.image}`)" alt="" />
           </v-avatar>
           <div
             class="
               relative
-              left-24
+              ml-[6rem]
               topLeftText
               d-flex
               flex-col
               justify-space-center
               align-center
-              md:left-0 md:mt-0 md:w-1/2
+              md:ml-0 md:mt-0 md:w-1/2
             "
           >
             <h1 class="text-xl font-medium text-[#263238] md:text-xl calcWidth">
@@ -68,7 +66,8 @@
           {{ reveal ? "Read Less" : "Read More" }}
         </button>
         <div class="">
-          <v-rating            class="inline-block transition duration-200"
+          <v-rating
+            class="inline-block transition duration-200"
             v-model="cardsSection.star"
             color="starfilled"
             background-color="starempty"
@@ -121,9 +120,10 @@ export default {
       },
     };
   },
-  mounted() {
-    let text = this.$refs["cardMessage"];
-    console.log(text);
+  methods: {
+    wordCount() {
+      console.log("Loaded");
+    },
   },
 };
 </script>
