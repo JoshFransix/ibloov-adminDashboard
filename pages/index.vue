@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-hidden h-screen" v-cloak>
+  <div class="overflow-hidden" v-cloak>
     <LazyLoginForm
       v-for="inputInfo in formInput"
       :key="inputInfo.id"
@@ -10,14 +10,13 @@
 </template>
 
 <script>
-import { formInput, dashboardData } from "@/assets/data.js";
+import { formInput } from "@/assets/data.js";
 
 export default {
   name: "IndexPage",
   data() {
     return {
       formInput,
-      dashboardData,
     };
   },
 };
@@ -25,7 +24,9 @@ export default {
 
 <style >
 template,
-div {
+div,
+v-btn,
+span {
   font-family: "Poppins", sans-serif !important;
 }
 
@@ -33,7 +34,7 @@ div {
   display: none;
 }
 
-v-btn {
-  font-family: "Poppins", sans-serif;
+.overflow-hidden {
+  overflow: hidden;
 }
 </style>

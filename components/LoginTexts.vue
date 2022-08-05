@@ -1,5 +1,5 @@
 <template>
-  <aside class="loginTexts">
+  <aside class="loginTexts overflow-hidden">
     <div
       class="
         w-auto

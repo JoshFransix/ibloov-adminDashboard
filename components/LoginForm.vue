@@ -1,7 +1,7 @@
 <template>
-  <v-app>
-    <v-main>
-      <div
+  <v-app class="overflow-hidden">
+    <v-main class="overflow-hidden">
+      <v-div
         class="
           loginForm
           h-screen
@@ -83,6 +83,8 @@
                 color="white"
                 depressed
                 class="
+                  font-weight-black
+                  primary--text
                   button
                   w-full
                   rounded-lg
@@ -94,12 +96,12 @@
                   hover:bg-gray-300
                 "
               >
-                <span class="primary--text">Next</span>
+                Next
               </v-btn>
             </v-card-actions>
           </v-form>
         </div>
-      </div>
+      </v-div>
       <v-snackbar top right color="green" v-model="snackbar">
         Login Successful
       </v-snackbar>
@@ -150,7 +152,8 @@ export default {
 
 
 <style scoped>
-v-btn {
+v-btn,
+span {
   font-family: "Poppins", sans-serif;
 }
 .loginForm {
@@ -158,6 +161,7 @@ v-btn {
   top: 0;
   left: 0;
   width: 60vw;
+  height: 100vh;
   background: #00237b;
   transition: all 0.3s ease-in-out;
 }

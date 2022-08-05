@@ -15,14 +15,15 @@
           md:flex-col
         "
       >
-        <div class="topLeft flex justify-between items-center md:flex-col">
-          <v-avatar size="75" class="absolute -mt-8 mr-3 md:-mt-12">
+        <div
+          class="topLeft d-flex justify-space-between align-center md:flex-col"
+        >
+          <v-avatar size="75" class="-mt-8 mr-3 md:-mt-12">
             <img :src="require(`@/assets/img/${cardsSection.image}`)" alt="" />
           </v-avatar>
           <div
             class="
               relative
-              ml-[6rem]
               topLeftText
               d-flex
               flex-col
