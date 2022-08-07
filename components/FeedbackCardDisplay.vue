@@ -1,7 +1,7 @@
 <template>
   <v-card
     class="relative card bg-white rounded-lg pr-4 h-[80px] w-[300px]"
-    :elevation="reveal ? '6' : '0'"
+    :elevation="words ? '6' : '0'"
   >
     <div class="px-4 pt-2">
       <div
@@ -18,6 +18,9 @@
         <div
           class="topLeft d-flex justify-space-between align-center md:flex-col"
         >
+          <!-- <v-avatar size="74" class="-mt-8 mr-3 md:-mt-12 bg-[#00237b]">
+            <span class="white--text text-h5"></span>
+          </v-avatar> -->
           <v-avatar size="75" class="-mt-8 mr-3 md:-mt-12">
             <img :src="require(`@/assets/img/${cardsSection.image}`)" alt="" />
           </v-avatar>
@@ -51,7 +54,11 @@
         </div>
       </div>
       <div :class="reveal ? 'showContent' : 'hideContent'">
-        <span class="font-normal text-sm text-[#010101]" ref="cardMessage">
+        <span
+          class="font-normal text-sm text-[#010101]"
+          ref="cardMessage"
+          @click="wordCount"
+        >
           {{ cardsSection.message }}
         </span>
         <span :class="reveal ? 'hide' : 'overlay'"></span>
@@ -61,6 +68,7 @@
     <v-card-actions class="mt-0 pt-0 mb-2">
       <div class="cardFooter mt-0 flex justify-between items-center w-full">
         <button
+          :class="words ? 'show' : 'hide'"
           @click="reveal = !reveal"
           class="text-xs text-[#00237b] font-bold ml-2"
         >
@@ -84,27 +92,6 @@
         </div>
       </div>
     </v-card-actions>
-    <!-- <v-expand-transition>
-      <v-card
-        v-if="reveal"
-        class="transition-fast-in-fast-out v-card--reveal"
-        style="height: 100%"
-      >
-        <v-card-text class="pb-0">
-          <p class="text-lg text--primary">Origin</p>
-          <p>
-            late 16th century (as a noun denoting a place where alms were
-            distributed): from medieval Latin eleemosynarius, from late Latin
-            eleemosyna ‘alms’, from Greek eleēmosunē ‘compassion’
-          </p>
-        </v-card-text>
-        <v-card-actions class="pt-0">
-          <v-btn text color="teal accent-4" @click="reveal = false">
-            Read less
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-expand-transition> -->
   </v-card>
 </template>
 
@@ -114,6 +101,7 @@ export default {
   data() {
     return {
       reveal: false,
+      words: false,
       inject: {
         theme: {
           default: { isDark: false },
@@ -121,9 +109,19 @@ export default {
       },
     };
   },
+  mounted: function () {
+    this.wordCount();
+  },
   methods: {
     wordCount() {
-      console.log("Loaded");
+      const messages = this.$refs.cardMessage.innerText;
+      const arr = messages.split(" ");
+      const result = arr.filter((word) => word !== "").length;
+      if (result >= 30) {
+        this.words = true;
+      } else {
+        this.words = false;
+      }
     },
   },
 };
@@ -142,7 +140,8 @@ p {
 }
 .hide {
   opacity: 0;
-  display: none;
+  pointer-events: none;
+  /* display: none; */
   transition: all 0.3s ease-in-out;
 }
 
@@ -151,6 +150,7 @@ p {
   overflow: hidden;
   line-height: 1em;
   height: 6em;
+  transition: all 0.3s ease-in-out;
 }
 
 .showContent {
@@ -158,6 +158,7 @@ p {
   height: auto;
   position: relative;
   height: auto;
+  transition: all 0.3s ease-in-out;
 }
 
 .overlay {
@@ -183,13 +184,6 @@ p {
 
 .calcWidth {
   width: 160px;
-}
-
-.v-card--reveal {
-  bottom: 0;
-  opacity: 1 !important;
-  position: absolute;
-  width: 100%;
 }
 
 .cardMargin {
