@@ -98,4 +98,9 @@ export default {
     }
   },
 
+  loading: {
+    color: '#00237b',
+    height: '5px'
+  }
+
 }

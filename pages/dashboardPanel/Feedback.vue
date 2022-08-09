@@ -24,6 +24,22 @@
               md:py-2 md:justify-start
             "
           >
+            <v-dialog v-model="dialog" persistent max-width="290">
+              <v-card>
+                <v-card-text class="mt-4"
+                  >There's no result for this filter</v-card-text
+                >
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn color="primary" text @click="allFeedbacks">
+                    Go back
+                  </v-btn>
+                  <!-- <v-btn color="green darken-1" text @click="dialog = false">
+                    Agree
+                  </v-btn> -->
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
             <div
               class="
                 topContent
@@ -109,7 +125,8 @@
                       md:text-sm
                       font-extrabold
                     "
-                    >{{ totalReviews() }} Reviews
+                    >{{ totalReviews() }}
+                    {{ reviewCount ? "Review" : "Reviews" }}
                   </span>
                 </div>
               </div>
@@ -156,83 +173,63 @@ import { feedbackData } from "@/assets/data.js";
 export default {
   data() {
     return {
+      dialog: false,
       feedbackData,
+      reviewCount: false,
+      feedbackValues: [],
       totalRatingValue: 0,
       filteredOptions: "All",
       newRating: [],
     };
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start();
+
+      setTimeout(() => this.$nuxt.$loading.finish(), 500);
+    });
   },
   computed: {
     feedback() {
       const feedData = this.$store.state.feedback.feedbackData2;
 
       return feedData.filter((feedback) => {
-        if (feedback) {
+        const feedbackDate = new Date(feedback.date);
+        if (
           // Custom Date Filter
-          if (
-            new Date(feedback.date) >= new Date(this.filteredOptions[0]) &&
-            new Date(feedback.date) <= new Date(this.filteredOptions[1])
-          ) {
-            return true;
-          }
-
-          // 7 days filter
-          if (
-            new Date(feedback.date) >=
-              new Date(new Date().setDate(new Date().getDate() - 7)) &&
-            new Date(feedback.date) <= new Date() &&
-            this.filteredOptions == "7 days"
-          ) {
-            return true;
-          }
-          // 15 days filter
-          if (
-            new Date(feedback.date) >=
-              new Date(new Date().setDate(new Date().getDate() - 15)) &&
-            new Date(feedback.date) <= new Date() &&
-            this.filteredOptions == "15 days"
-          ) {
-            return true;
-          }
-          // 1 month filter
-          if (
-            new Date(feedback.date) >=
-              new Date(new Date().setMonth(new Date().getMonth() - 1)) &&
-            new Date(feedback.date) <= new Date() &&
-            this.filteredOptions == "1 month"
-          ) {
-            return true;
-          }
-          // 6 months filter
-          if (
-            new Date(feedback.date) >=
-              new Date(new Date().setMonth(new Date().getMonth() - 6)) &&
-            new Date(feedback.date) <= new Date() &&
-            this.filteredOptions == "6 months"
-          ) {
-            return true;
-          }
-          // 1 year filter
-          if (
-            new Date(feedback.date) >=
-              new Date(new Date().setFullYear(new Date().getFullYear() - 1)) &&
-            new Date(feedback.date) <= new Date() &&
-            this.filteredOptions == "1 year"
-          ) {
-            return true;
-          }
-
-          // Star Rating Filter
-          if (feedback.star === this.filteredOptions) {
-            return true;
-          }
-          // Filter for All
-          if (feedback.all === "all" && this.filteredOptions == "All") {
-            return true;
-          }
-        } else {
-          // Default
-          return false;
+          (feedbackDate >= new Date(this.filteredOptions[0]) &&
+            feedbackDate <= new Date(this.filteredOptions[1])) ||
+          // 7 days
+          (feedbackDate >=
+            new Date(new Date().setDate(new Date().getDate() - 7)) &&
+            feedbackDate <= new Date() &&
+            this.filteredOptions == "7 days") ||
+          // 15 days
+          (feedbackDate >=
+            new Date(new Date().setDate(new Date().getDate() - 15)) &&
+            feedbackDate <= new Date() &&
+            this.filteredOptions == "15 days") ||
+          // 1 month
+          (feedbackDate >=
+            new Date(new Date().setMonth(new Date().getMonth() - 1)) &&
+            feedbackDate <= new Date() &&
+            this.filteredOptions == "1 month") ||
+          // 6 months
+          (feedbackDate >=
+            new Date(new Date().setMonth(new Date().getMonth() - 6)) &&
+            feedbackDate <= new Date() &&
+            this.filteredOptions == "6 months") ||
+          // 1 year
+          (feedbackDate >=
+            new Date(new Date().setFullYear(new Date().getFullYear() - 1)) &&
+            feedbackDate <= new Date() &&
+            this.filteredOptions == "1 year") ||
+          // Star rating
+          feedback.star === this.filteredOptions ||
+          // All
+          (feedback.all === "all" && this.filteredOptions == "All")
+        ) {
+          return true;
         }
       });
     },
@@ -243,6 +240,11 @@ export default {
     },
     totalReviews() {
       const count = this.feedback.filter((item) => item.id).length;
+      if (count <= 1) {
+        this.reviewCount = true;
+      } else {
+        this.reviewCount = false;
+      }
       return count;
     },
     totalRating() {
@@ -255,7 +257,17 @@ export default {
       total = sum;
       const finalTotal = total / this.totalReviews();
       this.totalRatingValue = finalTotal;
-      return finalTotal.toFixed(1);
+      if (finalTotal > 0) {
+        const firstResult = finalTotal.toFixed(1);
+        return firstResult;
+      } else {
+        this.dialog = true;
+        return "0.0";
+      }
+    },
+    allFeedbacks() {
+      this.filteredOptions = "All";
+      this.dialog = false;
     },
   },
 
@@ -264,6 +276,14 @@ export default {
 </script>
 
 <style scoped>
+.show {
+  opacity: 1;
+  pointer-events: all;
+}
+.hide {
+  opacity: 0;
+  pointer-events: none;
+}
 .fade-enter-active {
   transition: opacity 0.5s;
 }
@@ -284,7 +304,8 @@ export default {
 }
 
 h1,
-div {
+div,
+span {
   transition: all 0.3s ease-in-out;
 }
 

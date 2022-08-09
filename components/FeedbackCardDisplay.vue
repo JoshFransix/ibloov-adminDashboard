@@ -61,7 +61,9 @@
         >
           {{ cardsSection.message }}
         </span>
-        <span :class="reveal ? 'hide' : 'overlay'"></span>
+        <div class="overlayContainer" :class="words ? 'show' : 'hide'">
+          <span :class="reveal ? 'hide' : 'overlay'"></span>
+        </div>
       </div>
     </div>
 
@@ -136,6 +138,7 @@ p {
 }
 .show {
   opacity: 1;
+  pointer-events: all;
   transition: all 0.3s ease-in-out;
 }
 .hide {

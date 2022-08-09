@@ -47,7 +47,7 @@
                 <img src="@/assets/img/ibloov.svg" alt="" />
               </div>
               <div class="md:hidden">
-                <UserBox />
+                <LazyUserBox />
               </div>
               <div class="hidden md:block">
                 <SideBarMobile />
@@ -93,6 +93,13 @@ export default {
     return {
       dashboardData,
     };
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start();
+
+      setTimeout(() => this.$nuxt.$loading.finish(), 500);
+    });
   },
 };
 </script>

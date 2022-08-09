@@ -7,9 +7,9 @@ export const state = () => ({
       image: "landingImage.png",
       email: "test256@gmail.com",
       phoneNumber: "09012276905",
-      date: "07/29/2022",
+      date: "07/31/2022",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam",
-      star: 4,
+      star: 3,
       all: "all",
     },
     {
@@ -29,7 +29,7 @@ export const state = () => ({
       image: "landingImage.png",
       email: "mikey@outlook.com",
       phoneNumber: "07134676432",
-      date: "06/20/2022",
+      date: "07/12/2022",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi. Sit eos impedit consequuntur ipsam     aspernatur quasi quae, possimus harum autem animi. Sit eos impedit consequuntur ipsam     aspernatur quasi quae, possimus harum autem animi.",
       star: 3,
       all: "all"
@@ -103,7 +103,7 @@ export const state = () => ({
       phoneNumber: "09122734863",
       date: "12/10/2022",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi. Sit eos impedit consequuntur ipsam     aspernatur quasi quae, possimus harum autem animi.",
-      star: 4,
+      star: 2,
       all: "all"
 
     },
@@ -135,7 +135,7 @@ export const state = () => ({
       image: "landingImage.png",
       email: "azanti@szn.com",
       phoneNumber: "09122734863",
-      date: "07/02/2022",
+      date: "08/07/2022",
       message: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit eos impedit consequuntur ipsam      aspernatur quasi quae, possimus harum autem animi. Sit eos impedit consequuntur ipsam     aspernatur quasi ",
       star: 5,
       all: "all"
